@@ -1,0 +1,16 @@
+core: 8.x
+type: theme
+
+name: 'Bloch 0.0.1'
+description: 'Bloch theme to be used by the EHESS research centers. Use LESS source files and must be compiled.'
+
+libraries:
+  - bloch/global-styling
+  - bloch/global-scripts
+
+regions:
+  leaderboard: 'Leaderboard'
+  header: 'Header'
+  breadcrumb: 'Breadcrumb'
+  content: 'Content'
+  footer: 'Footer'

@@ -200,7 +200,7 @@
 
     </div>
 
-    {% if node.field_personnes.value %}
+    {# if node.field_personnes.value #}
       <div class="col-infos">
         <h3>Participants</h3>
         {% for personne in node.field_personnes %}
@@ -212,7 +212,7 @@
 	  </div>
         {% endfor %}
       </div>
-    {% endif %}
+    {# endif #}
 
   </aside>
 
@@ -224,23 +224,26 @@
       {{ node.field_description.value|raw }}
     </div>
 
+    {% set partage_facebook = 'http://www.facebook.com/sharer/sharer.php?u=' ~ url('<current>')|render ~ '&t=' ~ node.label %}
+    {% set partage_twitter = 'https://twitter.com/intent/tweet?url=' ~ url('<current>')|render ~ '&text=' ~ node.label %}
     <div class="node-partage">
       <h3>Partager cet événement</h3>
-      <a href=""><span class="fab fa-facebook-f"></span></a>
-      <a href=""><span class="fab fa-twitter"></span></a>
+      <a href="{{ partage_facebook }}"><span class="fab fa-facebook-f"></span></a>
+      <a href="{{ partage_twitter }}"><span class="fab fa-twitter"></span></a>
     </div>
 
     {% if node.field_mot_cle.value %}
       <div class="node-mot-cle">
         {% for mot_cle in node.field_mot_cle %}
-	  <a href="">{{ mot_cle.name.value }}</a>
+	  <a href="">{{ mot_cle.name }}</a>
         {% endfor %}
     {% endif %}
 
     <hr>
 
     <h3>Contenus connexes</h3>
-    
+    {# Insertion d'une vue listant les contenus ayant les mêmes mots-clés / le même type de contenu / tous les contenus, par ordre décroissant de date de publication #}
+
   </div>
 
 </article>

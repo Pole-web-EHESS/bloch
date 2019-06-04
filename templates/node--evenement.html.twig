@@ -99,9 +99,9 @@
 	</div>
 	<div class="infos-bloc-texte">
 	  {% for date_horaire in node.field_adresse_date_horaire %}
-	    <div>
-	      Du <div class="infos-bloc-value">{{ date_horaire.getFieldCollectionItem().field_date.value|date("l j F Y") }}
-	      <br/>au <div class="infos-bloc-value">{{ date_horaire.getFieldCollectionItem().field_date.end_value|date("l j F Y") }}
+	    <div class="infos-bloc-value">
+	      Du {{ date_horaire.getFieldCollectionItem().field_date.value|date("l j F Y") }}
+	      <br/>au {{ date_horaire.getFieldCollectionItem().field_date.end_value|date("l j F Y") }}
 	      <br/>
 	      {% if date_horaire.getFieldCollectionItem().field_adresse.value[0].family_name is not null %}
 	        {{ date_horaire.getFieldCollectionItem().field_adresse.value[0].family_name }}<br/>
@@ -224,11 +224,12 @@
       {{ node.field_description.value|raw }}
     </div>
 
+    {# Ces variables sont désormais passées en computed fields #}
     {% set partage_facebook = 'http://www.facebook.com/sharer/sharer.php?u=' ~ url('<current>')|render ~ '&t=' ~ node.label %}
     {% set partage_twitter = 'https://twitter.com/intent/tweet?url=' ~ url('<current>')|render ~ '&text=' ~ node.label %}
     <div class="node-partage">
       <h3>Partager cet événement</h3>
-      <a href="{{ partage_facebook }}"><span class="fab fa-facebook-f"></span></a>
+      <a href="{{ node.field_partage_facebook.value }}"><span class="fab fa-facebook-f"></span></a>
       <a href="{{ partage_twitter }}"><span class="fab fa-twitter"></span></a>
     </div>
 

@@ -33,12 +33,12 @@ h6 {
 
 .col-left {
 	display:inline-block;
-	width:@antiGoldenWidth;
+	width:100% - (@goldenWidth + @goldenWidth6);
         padding:1px 2.5vw 20px 1.5vw;
 }
 .col-right {
 	display:inline-block;
-	width:@goldenWidth;
+	width:@goldenWidth + @goldenWidth6;
 	margin-left:-4px;
 }
 
@@ -54,7 +54,8 @@ h6 {
 	}
 	.infos-bloc-icone {
 		color:@couleur1;
-		width: 40px;
+		min-width: 40px;
+		width:3vw;
 		display: inline-block;
 		text-align: center;
 		vertical-align: text-top;

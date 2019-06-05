@@ -51,6 +51,17 @@ a:hover,
 a:focus {
   color: #3d7e9a;
 }
+/* Responsive */
+@media (max-width: 767.98px) {
+  .hidden-xs {
+    display: none;
+  }
+}
+@media (min-width: 768px) {
+  .visible-xs {
+    display: none;
+  }
+}
 /**
  * Nodes content
  *
@@ -77,12 +88,12 @@ h5 {
 }
 .col-left {
   display: inline-block;
-  width: 38.19660113%;
+  width: 32.62379212%;
   padding: 1px 2.5vw 20px 1.5vw;
 }
 .col-right {
   display: inline-block;
-  width: 61.80339887%;
+  width: 67.37620788%;
   margin-left: -4px;
 }
 /* Colonne d'infos */
@@ -97,7 +108,8 @@ h5 {
 }
 .col-infos .infos-bloc-icone {
   color: #9c09db;
-  width: 40px;
+  min-width: 40px;
+  width: 3vw;
   display: inline-block;
   text-align: center;
   vertical-align: text-top;

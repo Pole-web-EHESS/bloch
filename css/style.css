@@ -146,10 +146,10 @@ h5 {
   margin-left: -0.75em;
 }
 /* Texte */
-.contenu-texte {
+.node-description {
   max-width: 75ch;
 }
-.exergue {
+.node-description .exergue {
   font-size: 1.3em;
   border-left: 4px solid #9c09db;
   padding-left: 2ch;

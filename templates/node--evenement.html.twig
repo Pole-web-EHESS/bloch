@@ -79,7 +79,7 @@
 %}
 <article{{ attributes.addClass(classes) }}>
 
-  <header>
+  <header class="visible-xs">
     <h1>
       {{ label }}
     </h1>
@@ -218,6 +218,16 @@
 
   <div class="col-right">
     {# content #}
+
+    <header class="hidden-xs">
+      <h1>
+        {{ label }}
+      </h1>
+      <h2>
+        {{ node.field_sous_titre.value }}
+      </h2>
+    </header>
+
     <img class="" src="{{ file_url(node.field_visuel[0].entity.uri.value) }}" alt="{{ node.field_visuel[0].alt  }}" />
 
     <div class="node-description">

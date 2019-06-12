@@ -245,10 +245,15 @@
       <a href="{{ node.field_partage_twitter.value }}"><span class="fab fa-twitter"></span></a>
     </div>
 
+    {% set first = true %}
     {% if node.field_mot_cle.value %}
       <div class="node-mot-cle">
         {% for mot_cle in node.field_mot_cle %}
-	        <a href="">{{ mot_cle.name }}</a>
+          <a href="">{{ mot_cle.name }}</a>
+          {% if not first %}
+            ,
+          {% endif %}
+          {% set first = false %}
         {% endfor %}
       </div>
     {% endif %}

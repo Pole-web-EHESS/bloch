@@ -91,32 +91,33 @@
   <aside class="col-left">
     <div class="col-infos">
 
-      <h3>{{ node.field_type_evenement.value }}</h3>
+      <h3>{{ node.field_type_evenement.value }}</h3>
 
       <div class="infos-bloc">
 	<div class="infos-bloc-icone">
 	  <span class="fa fa-calendar-alt fa-fw"></span>
 	</div>
 	<div class="infos-bloc-texte">
-	  {% for date_horaire in node.field_adresse_date_horaire %}
-	    <div class="infos-bloc-value">
-	      Du {{ date_horaire.getFieldCollectionItem().field_date.value|date("l j F Y") }}
-	      <br/>au {{ date_horaire.getFieldCollectionItem().field_date.end_value|date("l j F Y") }}
-	      <br/>
-	      {% if date_horaire.getFieldCollectionItem().field_adresse.value[0].family_name is not null %}
-	        {{ date_horaire.getFieldCollectionItem().field_adresse.value[0].family_name }}<br/>
-	      {% endif %}
-	      {% if date_horaire.getFieldCollectionItem().field_adresse.value[0].address_line1 is not null %}
-                {{ date_horaire.getFieldCollectionItem().field_adresse.value[0].address_line1 }}
-              {% endif %}
-              {% if date_horaire.getFieldCollectionItem().field_adresse.value[0].address_line2 is not null %}
-	        {{ date_horaire.getFieldCollectionItem().field_adresse.value[0].address_line2 }}
-	      {% endif %}
-              {% if date_horaire.getFieldCollectionItem().field_adresse.value[0].locality is not null %}
-	        - {{ date_horaire.getFieldCollectionItem().field_adresse.value[0].locality }}
-	      {% endif %}
-	    </div>
-	  {% endfor %}
+	  <ul>
+  	    {% for date_horaire in node.field_adresse_date_horaire %}
+	      <li>Du {{ date_horaire.getFieldCollectionItem().field_date.value|date("l j F Y") }}
+	        <br/>au {{ date_horaire.getFieldCollectionItem().field_date.end_value|date("l j F Y") }}
+	        <br/>
+	        {% if date_horaire.getFieldCollectionItem().field_adresse.value[0].family_name is not null %}
+	          {{ date_horaire.getFieldCollectionItem().field_adresse.value[0].family_name }}<br/>
+	        {% endif %}
+	        {% if date_horaire.getFieldCollectionItem().field_adresse.value[0].address_line1 is not null %}
+                  {{ date_horaire.getFieldCollectionItem().field_adresse.value[0].address_line1 }}
+                {% endif %}
+                {% if date_horaire.getFieldCollectionItem().field_adresse.value[0].address_line2 is not null %}
+	          {{ date_horaire.getFieldCollectionItem().field_adresse.value[0].address_line2 }}
+	        {% endif %}
+                {% if date_horaire.getFieldCollectionItem().field_adresse.value[0].locality is not null %}
+	          - {{ date_horaire.getFieldCollectionItem().field_adresse.value[0].locality }}
+	        {% endif %}
+	      </li>
+	    {% endfor %}
+          </ul>
 	</div>
       </div>
      

@@ -8,16 +8,23 @@
 /* Titres
  * h1, h2 et h3 sont réservés pour la structure du site ; h4, h5 et h6 sont à disposition des éditeurs de contenu
  */
+h1, h2, h3, h4, h5, h6 {
+	font-weight:500;
+	line-height:1.1;
+}
 h1 {
         .font-serif();
-        font-size:3em;
+        font-size:3.3em;
+	margin:0 0 30px 0;
 }
 h2 {
         .font-serif();
         font-size:2.5em;
+	margin:15px 0 30px 0;
 }
 h3 {
-
+	font-size: 2em;
+	margin:22px 0 22px 0;
 }
 h4 {
         margin: 34px 0 18px;
@@ -33,12 +40,12 @@ h6 {
 
 .col-left {
 	display:inline-block;
-	width:100% - (@goldenWidth + @goldenWidth6);
+	width:100% - (@goldenWidth + @goldenWidth5);
         padding:1px 2.5vw 20px 1.5vw;
 }
 .col-right {
 	display:inline-block;
-	width:@goldenWidth + @goldenWidth6;
+	width:@goldenWidth + @goldenWidth5;
 	margin-left:-4px;
 }
 
@@ -58,11 +65,11 @@ h6 {
 		width:3vw;
 		display: inline-block;
 		text-align: center;
-		vertical-align: text-top;
+		vertical-align:text-top;
+		font-size: 1.33em;
 	
 		.fa {
-			margin-top: 0.3em;
-			font-size: 1.66em;
+			margin-top: 0em;
 		}
 	}
 	.infos-bloc-texte {

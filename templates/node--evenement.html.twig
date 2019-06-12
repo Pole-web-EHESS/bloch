@@ -238,7 +238,7 @@
     {% set partage_facebook = 'http://www.facebook.com/sharer/sharer.php?u=' ~ url('<current>')|render ~ '&t=' ~ node.label %}
     {% set partage_twitter = 'https://twitter.com/intent/tweet?url=' ~ url('<current>')|render ~ '&text=' ~ node.label %}
     <div class="node-partage">
-      <h3>Partager cet événement</h3>
+      <h3>Partager</h3>
       <a href="{{ node.field_partage_facebook.value }}"><span class="fab fa-facebook-f"></span></a>
       <a href="{{ node.field_partage_twitter.value }}"><span class="fab fa-twitter"></span></a>
     </div>
@@ -246,8 +246,9 @@
     {% if node.field_mot_cle.value %}
       <div class="node-mot-cle">
         {% for mot_cle in node.field_mot_cle %}
-	  <a href="">{{ mot_cle.name }}</a>
+	        <a href="">{{ mot_cle.name }}</a>
         {% endfor %}
+      </div>
     {% endif %}
 
     <hr>

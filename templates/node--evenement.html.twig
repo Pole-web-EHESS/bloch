@@ -249,10 +249,10 @@
     {% if node.field_mot_cle.value %}
       <div class="node-mot-cle">
         {% for mot_cle in node.field_mot_cle %}
-          <a href="">{{ mot_cle.name }}</a>
           {% if not first %}
-            ,
+            -
           {% endif %}
+          <a href="">{{ mot_cle.name }}</a>
           {% set first = false %}
         {% endfor %}
       </div>

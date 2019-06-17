@@ -56,7 +56,16 @@ a, a:hover, a:focus {
   .visible-md {
     display:none;
   }
+  @media (max-width: @breakpoint-xl) {
+    .hidden-lg {
+      display:none;
+    }
+  }
 }
 
 // Extra large devices (large desktops, 1200px and up)
-@media (min-width: @breakpoint-xl) {  }
+@media (min-width: @breakpoint-xl) {
+  .hidden-xl {
+    display:none;
+  }
+}

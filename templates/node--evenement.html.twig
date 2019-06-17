@@ -95,44 +95,44 @@
       <h3>{{ content.field_type_evenement|field_value }}</h3>
 
       <div class="infos-bloc">
-	<div class="infos-bloc-icone">
-	  <span class="fa fa-calendar-alt fa-fw"></span>
-	</div>
-	<div class="infos-bloc-texte">
-	  <ul>
-  	    {% for date_horaire in node.field_adresse_date_horaire %}
-	      <li>Du {{ date_horaire.getFieldCollectionItem().field_date.value|date("l j F Y") }}
-	        <br/>au {{ date_horaire.getFieldCollectionItem().field_date.end_value|date("l j F Y") }}
-	        <br/>
-	        {% if date_horaire.getFieldCollectionItem().field_adresse.value[0].family_name is not null %}
-	          {{ date_horaire.getFieldCollectionItem().field_adresse.value[0].family_name }}<br/>
-	        {% endif %}
-	        {% if date_horaire.getFieldCollectionItem().field_adresse.value[0].address_line1 is not null %}
-                  {{ date_horaire.getFieldCollectionItem().field_adresse.value[0].address_line1 }}
+        <div class="infos-bloc-icone">
+          <span class="fa fa-calendar-alt fa-fw"></span>
+        </div>
+        <div class="infos-bloc-texte">
+          <ul>
+            {% for date_horaire in node.field_adresse_date_horaire %}
+              <li>Du {{ date_horaire.getFieldCollectionItem().field_date.value|date("l j F Y") }}
+                <br/>au {{ date_horaire.getFieldCollectionItem().field_date.end_value|date("l j F Y") }}
+                <br/>
+                {% if date_horaire.getFieldCollectionItem().field_adresse.value[0].family_name is not null %}
+                  {{ date_horaire.getFieldCollectionItem().field_adresse.value[0].family_name }}<br/>
                 {% endif %}
-                {% if date_horaire.getFieldCollectionItem().field_adresse.value[0].address_line2 is not null %}
-	          {{ date_horaire.getFieldCollectionItem().field_adresse.value[0].address_line2 }}
-	        {% endif %}
-                {% if date_horaire.getFieldCollectionItem().field_adresse.value[0].locality is not null %}
-	          - {{ date_horaire.getFieldCollectionItem().field_adresse.value[0].locality }}
-	        {% endif %}
-	      </li>
-	    {% endfor %}
-          </ul>
-	</div>
+                {% if date_horaire.getFieldCollectionItem().field_adresse.value[0].address_line1 is not null %}
+                      {{ date_horaire.getFieldCollectionItem().field_adresse.value[0].address_line1 }}
+                    {% endif %}
+                    {% if date_horaire.getFieldCollectionItem().field_adresse.value[0].address_line2 is not null %}
+                  {{ date_horaire.getFieldCollectionItem().field_adresse.value[0].address_line2 }}
+                {% endif %}
+                    {% if date_horaire.getFieldCollectionItem().field_adresse.value[0].locality is not null %}
+                  - {{ date_horaire.getFieldCollectionItem().field_adresse.value[0].locality }}
+                {% endif %}
+              </li>
+            {% endfor %}
+              </ul>
+        </div>
       </div>
      
       {% if node.field_inscription.value %}
         <div class="infos-bloc">
-	  <div class="infos-bloc-icone">
-	    <span class="fa fa-clipboard-list fa-fw"></span>
-	  </div>
-	  <div class="infos-bloc-texte">
-	    <span class="infos-intitule">Dates d'inscription :</span>
-	    {% for date in node.field_dates_inscription %}
-	      <div>Du {{ date.value|date("l j F Y") }} au {{ date.end_value|date("l j F Y") }}</div>
-	    {% endfor %}
-	  </div>
+          <div class="infos-bloc-icone">
+            <span class="fa fa-clipboard-list fa-fw"></span>
+          </div>
+          <div class="infos-bloc-texte">
+            <span class="infos-intitule">Dates d'inscription :</span>
+            {% for date in node.field_dates_inscription %}
+              <div>Du {{ date.value|date("l j F Y") }} au {{ date.end_value|date("l j F Y") }}</div>
+            {% endfor %}
+          </div>
         </div>
       {% endif %}
 

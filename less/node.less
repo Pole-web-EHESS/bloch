@@ -150,8 +150,9 @@ hr {
 /* Responsive */
 
 @media (max-width: @breakpoint-lg) {
-	.col-left, .col-right {
-		width:100%;
+	.col-left, .col-right, article > header {
+		display: block;
+		padding: 1px 2.5vw 20px 1.5vw;
 	}
 	@media (min-width: @breakpoint-md) {
 		.col-infos {

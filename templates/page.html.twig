@@ -107,12 +107,12 @@
         </aside>
       </div>
     {% endif %}
-    <footer>
-      <div class="layout-container">
-        {% if page.footer %}
-            {{ page.footer }}
-        {% endif %}
-      </div>
-    </footer>
+    {% if page.footer %}
+      <footer>
+        <div class="layout-container">
+          {{ page.footer }}
+        </div>
+      </footer>
+    {% endif %}
   </div>
 </div>

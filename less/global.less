@@ -30,7 +30,7 @@ a, a:hover, a:focus {
 /* Responsive */
 
 // Small devices (phones, below 768px)
-@media (max-width: 767.98px) {
+@media (max-width: @breakpoint-md) {
   .hidden-sm {
     display:none;
   }
@@ -40,21 +40,23 @@ a, a:hover, a:focus {
 }
 
 // Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
+@media (min-width: @breakpoint-md) {
   .visible-sm {
   	display:none;
   }
-  .hidden-md {
-    display:none;
+  @media (max-width: @breakpoint-lg) {
+    .hidden-md {
+      display:none;
+    }
   }
 }
 
 // Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
+@media (min-width: @breakpoint-lg) {
   .visible-md {
     display:none;
   }
 }
 
 // Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {  }
+@media (min-width: @breakpoint-xl) {  }

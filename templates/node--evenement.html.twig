@@ -232,7 +232,9 @@
 
     <figure class="img-container">
       <img src="{{ file_url(node.field_visuel[0].entity.uri.value) }}" alt="{{ node.field_visuel[0].alt  }}" />
-      <figcaption>{{ node.field_legende.value }}</figcaption>
+      {% if node.field_legende.value %}
+        <figcaption>{{ node.field_legende.value }}</figcaption>
+      {% endif %}
     </figure>
 
     <div class="node-description">

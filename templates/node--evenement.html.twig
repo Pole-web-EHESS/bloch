@@ -230,7 +230,10 @@
       </h2>
     </header>
 
-    <img class="" src="{{ file_url(node.field_visuel[0].entity.uri.value) }}" alt="{{ node.field_visuel[0].alt  }}" />
+    <figure class="img-container">
+      <img src="{{ file_url(node.field_visuel[0].entity.uri.value) }}" alt="{{ node.field_visuel[0].alt  }}" />
+      <figcaption>{{ node.field_legende.value }}</figcaption>
+    </figure>
 
     <div class="node-description">
       {{ node.field_description.value|raw }}

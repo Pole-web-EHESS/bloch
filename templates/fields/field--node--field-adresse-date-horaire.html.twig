@@ -1,4 +1,4 @@
-{% for date_horaire in node.field_adresse_date_horaire %}
+{% for date_horaire in items %}
     <li>Du {{ date_horaire.getFieldCollectionItem().field_date.value|date("l j F Y") }}
         <br/>au {{ date_horaire.getFieldCollectionItem().field_date.end_value|date("l j F Y") }}
         <br/>

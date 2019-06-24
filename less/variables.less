@@ -17,7 +17,10 @@
 @couleurlien:#3d7e9a;
 @grisFonceAAA:#595959;
 
-/* Breakpoints */
+/* Breakpoints responsive (based on Bootstrap 4)
+ *
+ * See https://getbootstrap.com/docs/4.3/layout/overview/
+ */
 @breakpoint-md:768px;
 @breakpoint-lg:992px;
 @breakpoint-xl:1200px;
@@ -76,6 +79,10 @@
 }
 .font-sans-serif() {
 	font-family:"Open Sans", "Arial", sans-serif;
+}
+/* Counters the whitespace between two inline-block elements ; to be used on the element to the right */
+.inline-block-no-ws() {
+	margin-left: 6px;
 }
 
 

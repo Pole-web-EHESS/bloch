@@ -1,18 +1,18 @@
 {% for date_horaire in items %}
     <li>Du {{ date_horaire.content.getFieldCollectionItem().field_date.value|date("l j F Y") }}
-        <br/>au {{ date_horaire.getFieldCollectionItem().field_date.end_value|date("l j F Y") }}
+        <br/>au {{ date_horaire.content.getFieldCollectionItem().field_date.end_value|date("l j F Y") }}
         <br/>
-        {% if date_horaire.getFieldCollectionItem().field_adresse.value[0].family_name is not null %}
-            {{ date_horaire.getFieldCollectionItem().field_adresse.value[0].family_name }}<br/>
+        {% if date_horaire.content.getFieldCollectionItem().field_adresse.value[0].family_name is not null %}
+            {{ date_horaire.content.getFieldCollectionItem().field_adresse.value[0].family_name }}<br/>
         {% endif %}
-        {% if date_horaire.getFieldCollectionItem().field_adresse.value[0].address_line1 is not null %}
-            {{ date_horaire.getFieldCollectionItem().field_adresse.value[0].address_line1 }}
+        {% if date_horaire.content.getFieldCollectionItem().field_adresse.value[0].address_line1 is not null %}
+            {{ date_horaire.content.getFieldCollectionItem().field_adresse.value[0].address_line1 }}
         {% endif %}
-        {% if date_horaire.getFieldCollectionItem().field_adresse.value[0].address_line2 is not null %}
-            {{ date_horaire.getFieldCollectionItem().field_adresse.value[0].address_line2 }}
+        {% if date_horaire.content.getFieldCollectionItem().field_adresse.value[0].address_line2 is not null %}
+            {{ date_horaire.content.getFieldCollectionItem().field_adresse.value[0].address_line2 }}
         {% endif %}
-        {% if date_horaire.getFieldCollectionItem().field_adresse.value[0].locality is not null %}
-            - {{ date_horaire.getFieldCollectionItem().field_adresse.value[0].locality }}
+        {% if date_horaire.content.getFieldCollectionItem().field_adresse.value[0].locality is not null %}
+            - {{ date_horaire.content.getFieldCollectionItem().field_adresse.value[0].locality }}
         {% endif %}
     </li>
 {% endfor %}

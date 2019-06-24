@@ -79,6 +79,7 @@
 %}
 <article{{ attributes.addClass(classes) }}>
 
+  {# Title header for mobile display #}
   <header class="hidden-lg hidden-xl">
     <h1>
       {{ label }}
@@ -91,9 +92,11 @@
   <aside class="col-left">
     <div class="col-infos">
 
-      {# This requires twig_field_value module to render correctly #}
+      {# Event type at the top of left column
+         This requires twig_field_value module to render correctly #}
       <h3>{{ content.field_type_evenement|field_value }}</h3>
 
+      {# Dates and places of the event #}
       <div class="infos-bloc">
         <div class="infos-bloc-icone">
           <span class="fa fa-calendar-alt fa-fw"></span>
@@ -118,7 +121,7 @@
                 {% endif %}
               </li>
             {% endfor %}
-              </ul>
+          </ul>
         </div>
       </div>
      
@@ -219,8 +222,8 @@
   </aside>
 
   <div class="col-right">
-    {# content #}
 
+    {# Title header for desktop display #}
     <header class="hidden-sm hidden-md">
       <h1>
         {{ label }}
@@ -230,6 +233,7 @@
       </h2>
     </header>
 
+    {# Main picture of the node, with its caption #}
     <figure class="img-container">
       <img src="{{ file_url(node.field_visuel[0].entity.uri.value) }}" alt="{{ node.field_visuel[0].alt  }}" />
       {% if node.field_legende.value %}

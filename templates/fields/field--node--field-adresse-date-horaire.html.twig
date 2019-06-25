@@ -1,8 +1,12 @@
 {% for item in items %}
-    <li>{% if item.content['#field_collection_item'].get("field_date").value|date("d/m/Y") == item.content['#field_collection_item'].get("field_date").end_value|date("d/m/Y") %}Le {{ item.content['#field_collection_item'].get("field_date").value|date("d/m/Y") }},
+    {# The comment markups are here to avoid unwanted whitespaces at the beggining of the lines #}
+    <li>{#
+        #}{% if item.content['#field_collection_item'].get("field_date").value|date("d/m/Y") == item.content['#field_collection_item'].get("field_date").end_value|date("d/m/Y") %}{#
+            #}Le {{ item.content['#field_collection_item'].get("field_date").value|date("d/m/Y") }},
             de {{ item.content['#field_collection_item'].get("field_date").value|date("H:i") }}
             à {{ item.content['#field_collection_item'].get("field_date").end_value|date("H:i") }}
-        {% else %}Du {{ item.content['#field_collection_item'].get("field_date").value|date("d/m/Y") }}
+        {% else %}{#
+            #}Du {{ item.content['#field_collection_item'].get("field_date").value|date("d/m/Y") }}
             à {{ item.content['#field_collection_item'].get("field_date").value|date("H:i") }}
             <br/>au {{ item.content['#field_collection_item'].get("field_date").end_value|date("d/m/Y") }}
             à {{ item.content['#field_collection_item'].get("field_date").end_value|date("H:i") }}

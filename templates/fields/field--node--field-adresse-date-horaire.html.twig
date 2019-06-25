@@ -1,5 +1,4 @@
 {% for date_horaire in items %}
-    {# kint(date_horaire.content['#field_collection_item'].get("field_date").end_value) #}
     <li>Du {{ date_horaire.content['#field_collection_item'].get("field_date").value|date("l j F Y") }}
         <br/>au {{ date_horaire.content['#field_collection_item'].get("field_date").end_value|date("l j F Y") }}
         <br/>

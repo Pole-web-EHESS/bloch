@@ -1,6 +1,6 @@
 {% for date_horaire in items %}
     {{ kint(date_horaire) }}
-    <li>Du {{ date_horaire.field_date.value|date("l j F Y") }}
+    <li>Du {{ date_horaire.content.field_date.value|date("l j F Y") }}
         <br/>au {{ date_horaire.content.getFieldCollectionItem().field_date.end_value|date("l j F Y") }}
         <br/>
         {% if date_horaire.content.getFieldCollectionItem().field_adresse.value[0].family_name is not null %}

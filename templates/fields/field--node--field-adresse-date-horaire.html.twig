@@ -9,8 +9,8 @@
             #}Du {{ item.content['#field_collection_item'].get("field_date").value|date("d/m/Y") }}
             à {{ item.content['#field_collection_item'].get("field_date").value|date("H:i") }}
             <br/>au {{ item.content['#field_collection_item'].get("field_date").end_value|date("d/m/Y") }}
-            à {{ item.content['#field_collection_item'].get("field_date").end_value|date("H:i") }}
-        {% endif %}{#
+            à {{ item.content['#field_collection_item'].get("field_date").end_value|date("H:i") }}{#
+        #}{% endif %}{#
         #},<br/>
         {% if item.content['#field_collection_item'].get("field_adresse").value[0].family_name is not null %}
             {{ item.content['#field_collection_item'].get("field_adresse").value[0].family_name }},

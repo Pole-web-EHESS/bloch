@@ -1,7 +1,7 @@
 {% for date_horaire in items %}
-    {{ kint(date_horaire.content['#field_collection_item'].get("field_date")) }}
-    <li>Du {{ date_horaire.content.field_date.value|date("l j F Y") }}
-        <br/>au {{ date_horaire.content.getFieldCollectionItem().field_date.end_value|date("l j F Y") }}
+    {# kint(date_horaire.content['#field_collection_item'].get("field_date").end_value) #}
+    <li>Du {{ date_horaire.content['#field_collection_item'].get("field_date").value|date("l j F Y") }}
+        <br/>au {{ date_horaire.content['#field_collection_item'].get("field_date").end_value|date("l j F Y") }}
         <br/>
         {% if date_horaire.content.getFieldCollectionItem().field_adresse.value[0].family_name is not null %}
             {{ date_horaire.content.getFieldCollectionItem().field_adresse.value[0].family_name }}<br/>

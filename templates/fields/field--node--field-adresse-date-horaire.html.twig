@@ -1,18 +1,27 @@
-{% for date_horaire in items %}
-    <li>Du {{ date_horaire.content['#field_collection_item'].get("field_date").value|date("Y/m/d H:i") }}
-        <br/>au {{ date_horaire.content['#field_collection_item'].get("field_date").end_value|date("Y/m/d H:i") }}
+{% for item in items %}
+    <li>
+        {% if item.content['#field_collection_item'].get("field_date").value|date("d/m/Y") == item.content['#field_collection_item'].get("field_date").end_value|date("d/m/Y" %}
+            Le {{ item.content['#field_collection_item'].get("field_date").value|date("d/m/Y") }},
+            de {{ item.content['#field_collection_item'].get("field_date").value|date("H:i") }}
+            à {{ item.content['#field_collection_item'].get("field_date").value|date("H:i") }}
+        {% else %}
+            Du {{ item.content['#field_collection_item'].get("field_date").value|date("d/m/Y") }} 
+            à {{ item.content['#field_collection_item'].get("field_date").value|date("H:i") }}
+            <br/>au {{ item.content['#field_collection_item'].get("field_date").value|date("d/m/Y") }}
+            à {{ item.content['#field_collection_item'].get("field_date").value|date("H:i") }}
+        {% endif %}
         <br/>
-        {% if date_horaire.content['#field_collection_item'].get("field_adresse").value[0].family_name is not null %}
-            {{ date_horaire.content['#field_collection_item'].get("field_adresse").value[0].family_name }}<br/>
+        {% if item.content['#field_collection_item'].get("field_adresse").value[0].family_name is not null %}
+            {{ item.content['#field_collection_item'].get("field_adresse").value[0].family_name }},
         {% endif %}
-        {% if date_horaire.content['#field_collection_item'].get("field_adresse").value[0].address_line1 is not null %}
-            {{ date_horaire.content['#field_collection_item'].get("field_adresse").value[0].address_line1 }}
+        {% if item.content['#field_collection_item'].get("field_adresse").value[0].address_line1 is not null %}
+            {{ item.content['#field_collection_item'].get("field_adresse").value[0].address_line1 }}
         {% endif %}
-        {% if date_horaire.content['#field_collection_item'].get("field_adresse").value[0].address_line2 is not null %}
-            {{ date_horaire.content['#field_collection_item'].get("field_adresse").value[0].address_line2 }}
+        {% if item.content['#field_collection_item'].get("field_adresse").value[0].address_line2 is not null %}
+            {{ item.content['#field_collection_item'].get("field_adresse").value[0].address_line2 }}
         {% endif %}
-        {% if date_horaire.content['#field_collection_item'].get("field_adresse").value[0].locality is not null %}
-            - {{ date_horaire.content['#field_collection_item'].get("field_adresse").value[0].locality }}
+        {% if item.content['#field_collection_item'].get("field_adresse").value[0].locality is not null %}
+            - {{ item.content['#field_collection_item'].get("field_adresse").value[0].locality }}
         {% endif %}
     </li>
 {% endfor %}

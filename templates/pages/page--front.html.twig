@@ -1,0 +1,17 @@
+<header id="main-header" class="header-flex-container" role="banner" aria-label="{{ 'Site header'|t }}">
+{{ page.header }}
+</header>
+<article id="front-content" role="main"> 
+<h1>{{ page['#title'] }}</h1>
+<p>{{ node.body.value }}</p>
+{{ drupal_block('search_form_block') }}
+{{ drupal_block('system_menu_block:menu-thematique') }}
+{{ drupal_block('system_menu_block:vie-du-centre') }}
+</article>
+<aside id="front-content-aside" class="">
+{{ drupal_view('contenus_page_accueil', 'principal') }}
+{{ drupal_view('contenus_page_accueil', 'derniers_appels') }}
+</aside>
+<footer>
+{{ page.footer }}
+</footer>

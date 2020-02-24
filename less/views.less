@@ -1,0 +1,68 @@
+/* VUE CONTENT PAGE D'ACCUEIL */
+div.views-element-container {
+    height: auto;
+    width: 100%;
+    
+    /* News/Event principal */
+    div.principal-evenements-actus,
+    div.principal-evenements-actus img {
+        height: auto;
+        width: 100%;
+    }
+    
+    div.principal-evenements-actus-legende {
+        display: block;
+        position: relative;
+        bottom: 0;
+        z-index: 1;
+        height: @fibSeq2BlancHeight5 + @fibSeq2BlancHeight8;
+        margin-top: -(@fibSeq2BlancHeight5 + (@fibSeq2BlancHeight8*3));
+        width: 100% - (@goldenWidth7 *2);
+        padding: @fibSeq2BlancHeight8 @goldenWidth7;
+        background-color: rgba(0,0,0,.66);
+        color: white;
+        font-weight: 300;
+        font-size: 14px;
+    }
+    
+    div.principal-evenements-actus-legende p {
+        display: block;
+        margin: 10px 0;
+        max-width: 62ch;
+    }
+    
+    div.principal-evenements-actus-legende a:link {
+        color: white;
+        font-weight: 500;
+        font-size: 28px;
+        text-decoration: none;
+        margin-bottom: 8px;
+    }
+    div.principal-evenements-actus-legende a:hover {
+        color: white;
+        font-weight: 500;
+        font-size: 28px;
+        text-decoration: underline;
+    }
+    
+    div.views-field-title span.field-content {
+        display: block;
+        // Custom 
+        @customHeightTitreContentFront:@fibSeq2BlancHeight4 - (@fibSeq2BlancHeight8 *2);
+        height: @fibSeq2BlancHeight4;
+        width: 100% - (@goldenWidth7 *2);
+        padding: @fibSeq2BlancHeight8 @goldenWidth7;
+        background-color: rgba(0,0,0,.66);
+        //margin-top: -@fibSeq2BlancHeight4;
+        position: relative;
+        bottom: 0;
+        z-index: 1;
+    }
+    
+    div.views-field-title a:link {
+        color: white;
+        font-weight: 300;
+        font-size: 26px;
+        text-decoration: none;
+    }
+}

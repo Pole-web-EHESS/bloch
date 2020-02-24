@@ -525,17 +525,44 @@ article#front-content input.form-submit:hover {
 div.views-element-container {
   height: auto;
   width: 100%;
+  /* News/Event principal */
 }
-div.views-element-container * img {
+div.views-element-container div.principal-evenements-actus,
+div.views-element-container div.principal-evenements-actus img {
   height: auto;
   width: 100%;
 }
-div.views-element-container div.views-field-title {
+div.views-element-container div.principal-evenements-actus-legende {
   display: block;
-  height: 9.01699437vh;
-  width: 100%;
+  position: relative;
+  bottom: 0;
+  z-index: 1;
+  height: 11.145618vh;
+  margin-top: -15.40286525vh;
+  width: 93.11162925%;
+  padding: 2.12862363vh 3.44418537%;
   background-color: rgba(0, 0, 0, 0.66);
-  margin-top: -9.01699437vh;
+  color: white;
+  font-weight: 300;
+  font-size: 14px;
+}
+div.views-element-container div.principal-evenements-actus-legende p {
+  display: block;
+  margin: 10px 0;
+  max-width: 62ch;
+}
+div.views-element-container div.principal-evenements-actus-legende a:link {
+  color: white;
+  font-weight: 500;
+  font-size: 28px;
+  text-decoration: none;
+  margin-bottom: 8px;
+}
+div.views-element-container div.principal-evenements-actus-legende a:hover {
+  color: white;
+  font-weight: 500;
+  font-size: 28px;
+  text-decoration: underline;
 }
 div.views-element-container div.views-field-title span.field-content {
   display: block;

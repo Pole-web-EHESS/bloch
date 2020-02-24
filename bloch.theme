@@ -4,5 +4,10 @@
  * @file
  * Place your custom PHP code in this file.
  */
-
-
+/*
+function bloch_preprocess_page(&$vars) {
+    // Site slogan
+    $site_config = \Drupal::config('system.site');
+    $vars['site_slogan'] = $site_config->get('slogan');
+}
+*/

@@ -77,7 +77,7 @@
     'clearfix',
   ]
 %}
-<article{{ attributes.addClass(classes) }}>
+<article class="node evenement">
 
   {# Title header for mobile display #}
   <header class="hidden-lg hidden-xl">
@@ -226,7 +226,7 @@
       {% endif %}
     </figure>
 
-    <div class="node-description">
+    <div class="node-body">
       {{ node.field_description.value|raw }}
     </div>
 

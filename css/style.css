@@ -45,12 +45,12 @@ body {
 img {
   /* We make sure that images don't overflow their parent */
 }
-/*
-.main-container.container {
-  width:auto;
-  margin: 10px 0 0;
-  padding:0;
+.container {
+  /* Main container with standard margin from the left and right edges of the screen */
+  margin-left: 5.572809%;
+  margin-right: 5.572809%;
 }
+/*
 .region.region-content {
   padding:3vw 5vw;
 }
@@ -566,7 +566,6 @@ div.views-element-container div.principal-evenements-actus-legende a:link {
   text-decoration: none;
   display: block;
   margin-top: 4px;
-  margin-bottom: 8px;
 }
 div.views-element-container div.principal-evenements-actus-legende a:hover {
   color: white;
@@ -650,4 +649,33 @@ div.views-element-container div.secondaires-evenements-actus-legende a:visited {
 div.views-element-container footer {
   background-color: none;
   min-height: auto;
+}
+/*** TERMES DE TAXONOMIE ***/
+div.terme-taxonomie {
+  margin: 5.572809vh 5.572809% 9.01699437vh 5.572809%;
+}
+div.terme-taxonomie div.puce-terme-taxonomie {
+  width: 61.80339887%;
+  border-bottom: solid 1px #EEE;
+  padding: 9.01699437vh 0px 14.58980338vh 0px;
+}
+div.terme-taxonomie div.puce-terme-taxonomie h2 {
+  font-size: 26px;
+  font-weight: 500;
+}
+div.terme-taxonomie div.puce-terme-taxonomie a:link {
+  color: black;
+  text-decoration: none;
+}
+div.terme-taxonomie div.puce-terme-taxonomie a:hover {
+  text-decoration: underline;
+}
+div.terme-taxonomie div.puce-terme-taxonomie a:visited {
+  text-decoration: none;
+}
+div.terme-taxonomie div.puce-terme-taxonomie p {
+  font-size: 16px;
+  font-weight: 300;
+  max-width: 62ch;
+  margin-top: 2.12862363vh;
 }

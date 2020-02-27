@@ -132,15 +132,52 @@ div.views-element-container {
 div.terme-taxonomie {
     margin: @fibSeq2BlancHeight6 @goldenWidth6 @fibSeq2BlancHeight5 @goldenWidth6;
     
+    div.ariane-taxonomie {
+        margin-top: @fibSeq2BlancHeight4;
+        margin-bottom: @fibSeq2BlancHeight7;
+        
+        font-size: 18px;
+        font-weight: 300;
+        
+        a:link {
+            text-decoration: none;
+            color: black;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        a:visited {
+            text-decoration: none;
+        }
+    }
+    
+    div.introduction-terme-taxonomie {
+        margin-bottom: @fibSeq2BlancHeight5;
+        h1 {
+            font-size: 32px;
+            font-weight: 300;
+            max-width: 62ch;
+        }
+    }
+    
     div.puce-terme-taxonomie {
         width: @goldenWidth;
-        border-bottom: solid 1px #EEE;
-        padding: @fibSeq2BlancHeight5 0px @fibSeq2BlancHeight4 0px;
-        
+        border-top: solid 1px #EEE;
+        padding: @fibSeq2BlancHeight6 0px @fibSeq2BlancHeight5 0px;
+
         h2 {
-            font-size: 26px;
+            font-size: 24px;
             font-weight: 500;
+            max-width: 62ch;
         }
+        a {
+            background-repeat: no-repeat;
+            background-position: left center;
+            background-image: url("data:image/svg+xml;utf8,<svg width='24' height='24' xmlns='http://www.w3.org/2000/svg' fill-rule='evenodd' clip-rule='evenodd'><path d='M14 4h-13v18h20v-11h1v12h-22v-20h14v1zm10 5h-1v-6.293l-11.646 11.647-.708-.708 11.647-11.646h-6.293v-1h8v8z'/></svg>");
+            padding-left: 35px;
+        }
+
+        
         a:link {
             color: black;
             text-decoration: none;
@@ -155,9 +192,14 @@ div.terme-taxonomie {
             font-size: 16px;
             font-weight: 300;
             max-width: 62ch;
-            margin-top: @fibSeq2BlancHeight8;
+            margin-top: @fibSeq2BlancHeight9;
         }
         
+        a.puce-link:hover {
+            cursor: pointer;
+        }
     }
-    
+    div.puce-terme-taxonomie:hover {
+        cursor:help;
+    }
 }

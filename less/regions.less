@@ -4,11 +4,20 @@ header#main-header {
     border-bottom: solid 1px #EEE;
     font-style: normal;
     background-color: #fafafa;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 2;
 }
 
 article#front-content {
     display: inline-block;
     vertical-align: top;
+    height: @oneHeight - (@fibSeq2BlancHeight3 + @fibSeq2BlancHeight5);
+    position: fixed;
+    z-index: 1;
+    top: 0px;
+    left: 0px;
     width: @goldenWidth2 - @goldenWidth7;
     padding: @fibSeq2BlancHeight3 @goldenWidth6 @fibSeq2BlancHeight5 @goldenWidth6;
     border-right: solid 1px #EEE;
@@ -18,5 +27,7 @@ article#front-content {
 aside#front-content-aside {
     display: inline-block;
     vertical-align: top;
+    margin-left: (@goldenWidth2 - @goldenWidth7) + (@goldenWidth6*2);
+    margin-top: 84px;
     width: @goldenWidth - @goldenWidth4;
 }

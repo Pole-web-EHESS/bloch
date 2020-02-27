@@ -42,8 +42,9 @@ body {
   -webkit-font-smoothing: antialiased;
   font-family: 'Public Sans';
 }
-img {
+.img-responsive img {
   /* We make sure that images don't overflow their parent */
+  max-width: 100%;
 }
 .container {
   /* Main container with standard margin from the left and right edges of the screen */
@@ -217,23 +218,28 @@ article.node h6 {
 article.node h1 {
   /*.font-serif();*/
   font-size: 3em;
-  margin: 0 0 30px 0;
+  margin: 30px 0;
 }
 article.node h2 {
   /*.font-serif();*/
   font-size: 2.5em;
-  margin: 15px 0 30px 0;
+  margin: 16px 0 30px 0;
 }
 article.node h3 {
   font-size: 2em;
-  margin: 34px 0 22px 0;
+  margin: 30px 0 16px 0;
 }
 article.node h4 {
-  margin: 44px 0 10px;
+  margin: 30px 0 16px;
   font-size: 1.66em;
-  border-top: 3px solid #9c09db;
-  padding-top: 10px;
   display: inline-block;
+}
+article.node h4:before {
+  width: 150px;
+  content: '';
+  display: block;
+  border-top: 3px solid #9c09db;
+  padding-bottom: 16px;
 }
 article.node h5 {
   margin: 24px 0 18px;
@@ -357,10 +363,19 @@ header#main-header {
   border-bottom: solid 1px #EEE;
   font-style: normal;
   background-color: #fafafa;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 2;
 }
 article#front-content {
   display: inline-block;
   vertical-align: top;
+  height: 67.37620788vh;
+  position: fixed;
+  z-index: 1;
+  top: 0px;
+  left: 0px;
   width: 34.75241575%;
   padding: 23.60679775vh 5.572809% 9.01699437vh 5.572809%;
   border-right: solid 1px #EEE;
@@ -369,6 +384,8 @@ article#front-content {
 aside#front-content-aside {
   display: inline-block;
   vertical-align: top;
+  margin-left: 45.89803375%;
+  margin-top: 84px;
   width: 47.2135955%;
 }
 /*** BLOCKS ***/
@@ -654,14 +671,45 @@ div.views-element-container footer {
 div.terme-taxonomie {
   margin: 5.572809vh 5.572809% 9.01699437vh 5.572809%;
 }
+div.terme-taxonomie div.ariane-taxonomie {
+  margin-top: 14.58980338vh;
+  margin-bottom: 3.44418537vh;
+  font-size: 18px;
+  font-weight: 300;
+}
+div.terme-taxonomie div.ariane-taxonomie a:link {
+  text-decoration: none;
+  color: black;
+}
+div.terme-taxonomie div.ariane-taxonomie a:hover {
+  text-decoration: underline;
+}
+div.terme-taxonomie div.ariane-taxonomie a:visited {
+  text-decoration: none;
+}
+div.terme-taxonomie div.introduction-terme-taxonomie {
+  margin-bottom: 9.01699437vh;
+}
+div.terme-taxonomie div.introduction-terme-taxonomie h1 {
+  font-size: 32px;
+  font-weight: 300;
+  max-width: 62ch;
+}
 div.terme-taxonomie div.puce-terme-taxonomie {
   width: 61.80339887%;
-  border-bottom: solid 1px #EEE;
-  padding: 9.01699437vh 0px 14.58980338vh 0px;
+  border-top: solid 1px #EEE;
+  padding: 5.572809vh 0px 9.01699437vh 0px;
 }
 div.terme-taxonomie div.puce-terme-taxonomie h2 {
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 500;
+  max-width: 62ch;
+}
+div.terme-taxonomie div.puce-terme-taxonomie a {
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-image: url("data:image/svg+xml;utf8,<svg width='24' height='24' xmlns='http://www.w3.org/2000/svg' fill-rule='evenodd' clip-rule='evenodd'><path d='M14 4h-13v18h20v-11h1v12h-22v-20h14v1zm10 5h-1v-6.293l-11.646 11.647-.708-.708 11.647-11.646h-6.293v-1h8v8z'/></svg>");
+  padding-left: 35px;
 }
 div.terme-taxonomie div.puce-terme-taxonomie a:link {
   color: black;
@@ -677,5 +725,11 @@ div.terme-taxonomie div.puce-terme-taxonomie p {
   font-size: 16px;
   font-weight: 300;
   max-width: 62ch;
-  margin-top: 2.12862363vh;
+  margin-top: 1.31556175vh;
+}
+div.terme-taxonomie div.puce-terme-taxonomie a.puce-link:hover {
+  cursor: pointer;
+}
+div.terme-taxonomie div.puce-terme-taxonomie:hover {
+  cursor: help;
 }

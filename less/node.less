@@ -21,23 +21,29 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
     /*.font-serif();*/
     font-size:3em;
-    margin:0 0 30px 0;
+    margin:30px 0;
 }
 h2 {
     /*.font-serif();*/
     font-size:2.5em;
-	margin:15px 0 30px 0;
+    margin:16px 0 30px 0;
 }
 h3 {
-	font-size: 2em;
-	margin:34px 0 22px 0;
+    font-size: 2em;
+    margin:30px 0 16px 0;
 }
 h4 {
-    margin: 44px 0 10px;
+    margin:30px 0 16px;
     font-size:1.66em;
-    border-top: 3px solid @couleur1;
-    padding-top: 10px;
     display:inline-block;
+
+    &:before {
+        width:150px;
+	content:'';
+	display:block;
+	border-top: 3px solid @couleur1;
+	padding-bottom:16px;
+    }
 }
 h5 {
     margin:24px 0 18px;
@@ -120,7 +126,7 @@ h6 {
 
 	.exergue {
 		font-size:1.15em;
-	    border-left:4px solid @couleur1;
+		border-left:4px solid @couleur1;
 		padding-left: 2ch;
 		line-height:1.6em;
 	}

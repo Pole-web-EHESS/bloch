@@ -17,7 +17,7 @@ body {
   -webkit-font-smoothing: antialiased;
   font-family: 'Public Sans';
 }
-.img-responsive img {
+.img-container img {
   /* We make sure that images don't overflow their parent */
   max-width:100%;
   width:auto;
@@ -34,24 +34,25 @@ body {
 .region.region-content {
   padding:3vw 5vw;
 }
+*/
+
 a, a:hover, a:focus {
   color:@couleurlien;
 }
-
 p {
   margin:20px 0;
 }
 
-/* Container for an image and its caption 
+/* Container for an image and its caption */
 figure {
   margin:0;
   position:relative;
   display:inline-block;
 
-  /* Display of the image caption in the corner 
+  /* Display of the image caption in the corner */
   figcaption {
     position:absolute;
-    bottom:0;
+    bottom:4px;
     right:0;
     background-color:rgba(0,0,0,0.6);
     color:white;
@@ -62,13 +63,13 @@ figure {
     -webkit-transition: opacity 500ms;
     transition: opacity 500ms;
 
-    &:hover {
-      opacity:1;
-    }
+  }
+  &:hover figcaption {
+    opacity:1;
   }
 }
 
-/* Responsive 
+/* Responsive */
 
 // Small devices (phones, below 768px)
 @media (max-width: @breakpoint-md) {

@@ -49,9 +49,12 @@
  */
 #}
 <article class="node actualite">
-    <div class="img-responsive">
+    <figure class="img-container">
         {{ content.field_visuel.0 }}
-    </div>
+        {% if content.field_visuel_legende.0 %}
+            {{ content.field_visuel_legende }}
+        {% endif %}
+    </figure>
 
     {{ label }}
 

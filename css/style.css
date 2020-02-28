@@ -42,7 +42,7 @@ body {
   -webkit-font-smoothing: antialiased;
   font-family: 'Public Sans';
 }
-.img-responsive img {
+.img-container img {
   /* We make sure that images don't overflow their parent */
   max-width: 100%;
   width: auto;
@@ -57,83 +57,72 @@ body {
 .region.region-content {
   padding:3vw 5vw;
 }
-a, a:hover, a:focus {
-  color:@couleurlien;
+*/
+a,
+a:hover,
+a:focus {
+  color: #3d7e9a;
 }
-
 p {
-  margin:20px 0;
+  margin: 20px 0;
 }
-
-/* Container for an image and its caption 
+/* Container for an image and its caption */
 figure {
-  margin:0;
-  position:relative;
-  display:inline-block;
-
-  /* Display of the image caption in the corner 
-  figcaption {
-    position:absolute;
-    bottom:0;
-    right:0;
-    background-color:rgba(0,0,0,0.6);
-    color:white;
-    opacity:0.6;
-    padding:3px 9px;
-    font-size:0.9em;
-    cursor:default;
-    -webkit-transition: opacity 500ms;
-    transition: opacity 500ms;
-
-    &:hover {
-      opacity:1;
-    }
-  }
+  margin: 0;
+  position: relative;
+  display: inline-block;
+  /* Display of the image caption in the corner */
 }
-
-/* Responsive 
-
-// Small devices (phones, below 768px)
-@media (max-width: @breakpoint-md) {
+figure figcaption {
+  position: absolute;
+  bottom: 4px;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  opacity: 0.6;
+  padding: 3px 9px;
+  font-size: 0.9em;
+  cursor: default;
+  -webkit-transition: opacity 500ms;
+  transition: opacity 500ms;
+}
+figure:hover figcaption {
+  opacity: 1;
+}
+/* Responsive */
+@media (max-width: 768px) {
   .hidden-sm {
-    display:none;
+    display: none;
   }
   .visible-md {
-    display:none;
+    display: none;
   }
 }
-
-// Medium devices (tablets, 768px and up)
-@media (min-width: @breakpoint-md) {
+@media (min-width: 768px) {
   .visible-sm {
-    display:none;
-  }
-  @media (max-width: @breakpoint-lg) {
-    .hidden-md {
-      display:none;
-    }
+    display: none;
   }
 }
-
-// Large devices (desktops, 992px and up)
-@media (min-width: @breakpoint-lg) {
+@media (min-width: 768px) and (max-width: 992px) {
+  .hidden-md {
+    display: none;
+  }
+}
+@media (min-width: 992px) {
   .visible-md {
-    display:none;
-  }
-  @media (max-width: @breakpoint-xl) {
-    .hidden-lg {
-      display:none;
-    }
+    display: none;
   }
 }
-
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: @breakpoint-xl) {
+@media (min-width: 992px) and (max-width: 1200px) {
+  .hidden-lg {
+    display: none;
+  }
+}
+@media (min-width: 1200px) {
   .hidden-xl {
-    display:none;
+    display: none;
   }
 }
-
 /*** FLEX CLASSES ***/
 .header-flex-container {
   display: -ms-flexbox;
@@ -369,10 +358,10 @@ header#main-header {
   border-bottom: solid 1px #EEE;
   font-style: normal;
   background-color: #fafafa;
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  z-index: 2;
+  /*position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 2;*/
 }
 article#front-content {
   display: inline-block;

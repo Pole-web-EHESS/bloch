@@ -1,18 +1,32 @@
-<header id="main-header" class="header-flex-container" role="banner" aria-label="{{ 'Site header'|t }}">
+{#
+/**
+ * @file
+ * page--front.html.twig : Custom template of the site front page.
+ * EHESS 2020 - David N. Brett / Richard Legrand
+ * 
+ * The following relies on the use of the Twig tweaks markup.
+ * Cheat sheet : https://www.drupal.org/docs/8/modules/twig-tweak/cheat-sheet
+ */
+#}
 {{ page.header }}
-</header>
-<article id="front-content" role="main"> 
-<h1>{{ page['#title'] }}</h1>
+<main role="main">
+<section id="front-identity"> 
+<h1 id="main-content">{{ page['#title'] }}</h1>
 <p>{{ node.body.value }}</p>
 {{ drupal_block('search_form_block') }}
 {{ drupal_block('system_menu_block:menu-thematique') }}
 {{ drupal_block('system_menu_block:vie-du-centre') }}
+<footer id="frontSignature">
 {{ drupal_entity('block', 'coordonneesducentre') }}
-</article>
-<aside id="front-content-aside" class="">
+{{ drupal_entity('block_content', 3) }}
+</footer>
+</section>
+</main>
+<section id="front-content-aside">
+<section id="front-news">    
 {{ drupal_view('contenus_page_accueil', 'principal') }}
 {{ drupal_view('contenus_page_accueil', 'derniers_appels') }}
-</aside>
+</section>
 <footer>
 {{ page.footer }}
 </footer>

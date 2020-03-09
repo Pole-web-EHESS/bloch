@@ -1,17 +1,12 @@
 {#
 /**
- * @file
- * Theme override to display a region.
- *
- * Available variables:
- * - content: The content for this region, typically blocks.
- * - attributes: HTML attributes for the region div.
- * - region: The name of the region variable as defined in the theme's
- *   .info.yml file.
- *
- * @see template_preprocess_region()
+ * @file 
+ * region--header.html.twig : Main header region on all pages.
+ * EHESS 2020 - David N. Brett / Richard Legrand
  */
 #}
 {% if content %}
+<header id="main-header" role="banner" aria-label="{{ 'Site header'|t }}">
 {{ content }}
+</header>
 {% endif %}

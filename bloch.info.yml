@@ -1,7 +1,7 @@
 core: 8.x
 type: theme
 
-name: 'Bloch 0.0.1'
+name: 'Bloch 0.9.1'
 description: 'Bloch theme to be used by the EHESS research centers. Use LESS source files and must be compiled.'
 
 libraries:

@@ -77,7 +77,7 @@
     'clearfix',
   ]
 %}
-<article class="node evenement">
+<article class="container node evenement">
 
   {# Title header for mobile display #}
   <header class="hidden-lg hidden-xl">
@@ -208,6 +208,14 @@
 
   <div class="col-right">
 
+    {# Main picture of the node, with its caption #}
+    <figure class="img-container">
+      <img src="{{ file_url(node.field_visuel[0].entity.uri.value) }}" alt="{{ node.field_visuel[0].alt  }}" />
+      {% if node.field_legende.value %}
+        <figcaption>{{ node.field_legende.value }}</figcaption>
+      {% endif %}
+    </figure>
+
     {# Title header for desktop display #}
     <header class="hidden-sm hidden-md">
       <h1>
@@ -217,14 +225,6 @@
         {{ node.field_sous_titre.value }}
       </h2>
     </header>
-
-    {# Main picture of the node, with its caption #}
-    <figure class="img-container">
-      <img src="{{ file_url(node.field_visuel[0].entity.uri.value) }}" alt="{{ node.field_visuel[0].alt  }}" />
-      {% if node.field_legende.value %}
-        <figcaption>{{ node.field_legende.value }}</figcaption>
-      {% endif %}
-    </figure>
 
     <div class="node-body">
       {{ node.field_description.value|raw }}

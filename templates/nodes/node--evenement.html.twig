@@ -119,7 +119,7 @@
           <ul>
             {% for date in node.field_date %}
               {% if date.value|date("l j F Y") == date.end_value|date("l j F Y") %}
-                <li>Le {{ date.value|date('U')|format_date("custom", "l j F Y") }} de {{ date.value|date('U')|format_date("custom", "G:i") }} à {{ date.end_value|date('U')|format_date("custom","G:i") }}</li>
+                <li>Le {{ date.value|date('U')|format_date("custom", "l j F Y") }} de {{ date.value|date('U')|format_date("custom", "G:i") }} à  {{ date.end_value|date('U')|format_date("custom","G:i") }}</li>
               {% else %}
                 <li>Du {{ date.value|date('U')|format_date("custom","l j F Y") }} {{ date.value|date('U')|format_date("custom","G:i") }} au {{ date.end_value|date('U')|format_date("custom","l j F Y") }} {{ date.end_value|date('U')|format_date("custom","G:i") }}</li>
               {% endif %}
@@ -127,6 +127,33 @@
           </ul>
         </div>
       </div>
+
+      {# Places of the event #}
+      {% if node.field_adresse.value %}
+      <div class="infos-bloc">
+        <div class="infos-bloc-icone">
+          <span class="fa fa-calendar-alt fa-fw"></span>
+        </div>
+        <div class="infos-bloc-texte">
+          <ul>
+            {{ content.field_adresse }}
+          </ul>
+        </div>
+      </div>
+      {% elseif node.field_adresse_texte_brut %}
+      <div class="infos-bloc">
+        <div class="infos-bloc-icone">
+          <span class="fa fa-map fa-fw"></span>
+        </div>
+        <div class="infos-bloc-texte">
+          <ul>
+            {% for item in node.field_adresse_texte_brut %}
+              <li>{{ item.value }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      {% endif %}
      
       {% if node.field_inscription.value %}
         <div class="infos-bloc">

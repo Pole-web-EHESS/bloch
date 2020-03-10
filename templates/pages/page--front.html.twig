@@ -23,13 +23,24 @@
 </section>
 </main>
 <section id="front-content-aside">
-<section id="front-news">    
+<section>    
 {{ drupal_view('contenus_page_accueil', 'principal') }}
+</section>
+<section>
 {{ drupal_view('contenus_page_accueil', 'invites') }}
+</section>
+<section id="publications_front">
+<header>Dernières publications de nos chercheurs</header>
 {{ drupal_view('contenus_page_accueil', 'publications') }}
+</section>
+<section id="infos_administratives">
+<section id="appels_front">
+<header>Nos derniers appels</header>
 {{ drupal_view('contenus_page_accueil', 'appels') }}
+</section>
+<section id="soutenances_front">
+<header>Nos prochaines soutenances</header>
 {{ drupal_view('contenus_page_accueil', 'soutenances') }}
 </section>
-<footer>
-{{ page.footer }}
-</footer>
+</section>
+</section>

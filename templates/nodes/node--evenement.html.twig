@@ -96,16 +96,34 @@
 
       {# Event type at the top of left column
          This requires twig_field_value module to render correctly #}
-      <h3>{{ content.field_type_evenement|field_value }}</h3>
+      <h3>{{ content.field_type_d_evenement|field_value }}</h3>
 
-      {# Dates and places of the event #}
-      <div class="infos-bloc">
+      {# [DEPRECATED] Dates and places of the event #}
+      {#<div class="infos-bloc">
         <div class="infos-bloc-icone">
           <span class="fa fa-calendar-alt fa-fw"></span>
         </div>
         <div class="infos-bloc-texte">
           <ul>
             {{ content.field_adresse_date_horaire }}
+          </ul>
+        </div>
+      </div>#}
+
+      {# Dates of the event #}
+      <div class="infos-bloc">
+        <div class="infos-bloc-icone">
+          <span class="fa fa-calendar-alt fa-fw"></span>
+        </div>
+        <div class="infos-bloc-texte">
+          <ul>
+            {% for date in node.field_date %}
+              {% if date.value|date("l j F Y") == date.end_value|date("l j F Y") %}
+                <li>Le {{ date.value|date('U')|format_date("custom", "l j F Y") }} de {{ date.value|date('U')|format_date("custom", "G:i") }} à {{ date.end_value|date('U')|format_date("custom","G:i") }}</li>
+              {% else %}
+                <li>Du {{ date.value|date('U')|format_date("custom","l j F Y") }} {{ date.value|date('U')|format_date("custom","G:i") }} au {{ date.end_value|date('U')|format_date("custom","l j F Y") }} {{ date.end_value|date('U')|format_date("custom","G:i") }}</li>
+              {% endif %}
+            {% endfor %}
           </ul>
         </div>
       </div>

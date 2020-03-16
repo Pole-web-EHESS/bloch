@@ -210,7 +210,7 @@
             <span class="infos-intitule">A télécharger :</span>
             <ul>
               {% for pj in node.field_piece_jointe %}
-                <li>{{ pj.value }}</li>
+                <li><a href="{{ pj.uri }}">{{ pj.description }}</a></li>
               {% endfor %}
             </ul>
           </div>
@@ -236,16 +236,9 @@
     </div>
 
     {# if node.field_personnes.value #}
-      <div class="col-infos">
+      <div class="col-infos participants">
         <h3>Participants</h3>
-        {% for personne in node.field_personnes %}
-          <div class="infos-bloc-personne">
-            <div class="personne-vignette">
-	    </div>
-	    <div class="personne-label">
-	    </div>
-	  </div>
-        {% endfor %}
+        {{ drupal_view('participants', 'block_1') }}
       </div>
     {# endif #}
 

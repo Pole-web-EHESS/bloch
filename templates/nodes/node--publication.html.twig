@@ -49,19 +49,80 @@
  */
 #}
 <article class="container node publication">
-    <figure class="img-container">
-        {{ content.field_visuel.0 }}
-        {% if content.field_visuel_legende.0 %}
-            {{ content.field_visuel_legende }}
-        {% endif %}
-    </figure>
 
+  <header class="hidden-lg hidden-xl">
     {{ label }}
     {% if node.field_sous_titre %}
-        <h2>{{ node.field_sous_titre }}</h2>
+      <h2>{{ node.field_sous_titre.value }}</h2>
     {% endif %}
+  </header>
+
+  <aside class="col-left">
+
+    {# Information column #}
+    <div class="col-infos">
+
+      {# Type at the top of left column
+        This requires twig_field_value module to render correctly #}
+      <h3>{{ content.field_type_de_publication|field_value }}</h3>
+
+      {% if node.field_date_de_parution.value %}
+        <div class="infos-bloc">
+          <div class="infos-bloc-icone">
+            <span class="fa fa-calendar fa-fw"></span>
+          </div>
+          <div class="infos-bloc-texte">
+            <span class="infos-intitule">Date de parution :</span>
+            {{ node.field_date_de_parution.value|date("d/m/Y") }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if node.field_editeur.title %}
+        <div class="infos-bloc">
+          <div class="infos-bloc-icone">
+            <span class="fa fa-globe fa-fw"></span>
+          </div>
+          <div class="infos-bloc-texte">
+            <span class="infos-intitule">Éditeur :</span>
+            <a href="{{ node.field_editeur.uri }}">{{ node.field_editeur.title }}</a>
+          </div>
+        </div>
+      {% endif %}
+
+      {% if node.field_collection.value %}
+        <div class="infos-bloc">
+          <div class="infos-bloc-icone">
+            <span class="fa fa-book fa-fw"></span>
+          </div>
+          <div class="infos-bloc-texte">
+            <span class="infos-intitule">Collection :</span>
+            {{ node.field_collection.value }}
+          </div>
+        </div>
+      {% endif %}
+
+    </div>
+  </aside>
+
+  <div class="col-right">
+    <figure class="img-container">
+      {{ content.field_visuel.0 }}
+      {% if content.field_visuel_legende.0 %}
+        {{ content.field_visuel_legende }}
+      {% endif %}
+    </figure>
+
+    <header class="hidden-sm hidden-md">
+      {{ label }}
+      {% if node.field_sous_titre %}
+        <h2>{{ node.field_sous_titre.value }}</h2>
+      {% endif %}
+    </header>
 
     <div class="node-body">
-        {{ content.body.0 }}
+      {{ content.body.0 }}
     </div>
+  </div>
 </article>
+

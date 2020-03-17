@@ -59,6 +59,10 @@
 
   <aside class="col-left">
 
+    <figure class="img-container">
+      {{ content.field_visuel.0 }}
+    </figure>
+
     {# Information column #}
     <div class="col-infos">
 
@@ -102,22 +106,68 @@
         </div>
       {% endif %}
 
+      {% if node.field_type_de_la_norme.value %}
+        <div class="infos-bloc">
+          <div class="infos-bloc-icone">
+            <span class="fa fa-archive fa-fw"></span>
+          </div>
+          <div class="infos-bloc-texte">
+            <span class="infos-intitule">{{ node.field_type_de_la_norme.value }} :</span>
+            {{ node.field_numero_de_la_norme.value }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if node.field_piece_jointe.value %}
+        <div class="infos-bloc">
+          <div class="infos-bloc-icone">
+            <span class="fa fa-file-download fa-fw"></span>
+          </div>
+          <div class="infos-bloc-texte">
+            <span class="infos-intitule">A télécharger :</span>
+            <ul>
+              {% for pj in node.field_piece_jointe %}
+                <li><a href="{{ pj.uri }}">{{ pj.description }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      {% endif %}
+
     </div>
   </aside>
 
   <div class="col-right">
-    <figure class="img-container">
-      {{ content.field_visuel.0 }}
-      {% if content.field_visuel_legende.0 %}
-        {{ content.field_visuel_legende }}
-      {% endif %}
-    </figure>
-
     <header class="hidden-sm hidden-md">
       {{ label }}
       {% if node.field_sous_titre %}
         <h2>{{ node.field_sous_titre.value }}</h2>
       {% endif %}
+
+      {# Authors display
+         Will probably be done through a view pointing to users in the final architecture #}
+      <h3>
+        {# drupal_view('participants', 'block_1') #}
+        {% set first = true %}
+        {% if node.field_auteurs.value %}
+          {% for auteur in node.field_auteurs %}
+            {% if first != true %}
+              , 
+              {% set first = false %}
+            {% endif %}
+            {{ auteur.value }}
+          {% endfor %}
+        {% endif %}
+        {% if node.field_auteurs.value %}
+          {% for auteur in node.field_auteurs_hors_ehess %}
+            {% if first != true %}
+              ,
+              {% set first = false %}
+            {% endif %}
+            {{ auteur.value }}
+          {% endfor %}
+        {% endif %}
+      </h3>
     </header>
 
     <div class="node-body">

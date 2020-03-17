@@ -7,3 +7,10 @@ global-scripts:
   version: 0.9.1
   js:
     js/script.js: {}
+    
+
+# Autotoggle : custom div show/hide
+autotoggle:
+  version: 1.x
+  js:
+    js/autotoggle.js: {}

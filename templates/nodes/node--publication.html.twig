@@ -147,25 +147,28 @@
       {# Authors display
          Will probably be done through a view pointing to users in the final architecture #}
       <h3>
-        {# drupal_view('participants', 'block_1') #}
-        {% set first = true %}
-        {% if node.field_auteurs.value %}
-          {% for auteur in node.field_auteurs %}
-            {% if first != true %}
-              , 
+        {% if node.field_direction_d_ouvrage.value %}
+          {{ node.field_direction_d_ouvrage.value }}
+        {% else %}
+          {% set first = true %}
+          {% if node.field_auteurs.value %}
+            {% for auteur in node.field_auteurs %}
+              {% if first != true %}
+                , 
+              {% endif %}
               {% set first = false %}
-            {% endif %}
-            {{ auteur.value }}
-          {% endfor %}
-        {% endif %}
-        {% if node.field_auteurs.value %}
-          {% for auteur in node.field_auteurs_hors_ehess %}
-            {% if first != true %}
-              ,
+              {{ auteur.value }}
+            {% endfor %}
+          {% endif %}
+          {% if node.field_auteurs.value %}
+            {% for auteur in node.field_auteurs_hors_ehess %}
+              {% if first != true %}
+                ,
+              {% endif %}
               {% set first = false %}
-            {% endif %}
-            {{ auteur.value }}
-          {% endfor %}
+              {{ auteur.value }}
+            {% endfor %}
+          {% endif %}
         {% endif %}
       </h3>
     </header>

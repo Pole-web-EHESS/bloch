@@ -1,0 +1,184 @@
+div.terme-taxonomie {
+    margin: @fibSeq2BlancHeight4 @goldenWidth4;
+    
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-align-content: stretch;
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    
+    section {
+        -webkit-order: 0;
+        -ms-flex-order: 0;
+        order: 0;
+        -webkit-flex: 0 1 auto;
+        -ms-flex: 0 1 auto;
+        flex: 0 1 auto;
+        -webkit-align-self: auto;
+        -ms-flex-item-align: auto;
+        align-self: auto;
+        
+        h2 {
+            display:block;
+            width: 100%;
+            font-size: 3.8vh;
+            font-weight: 300;
+            padding: @fibSeq2BlancHeight7 0px; 
+            color:#000;
+            margin-bottom: 18px;
+            border-top: 1px solid #f1f1f1;
+            border-bottom: 1px solid #f1f1f1;
+            
+            background-repeat: no-repeat;
+            background-position: left center;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'   viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-list'><line x1='8' y1='6' x2='21' y2='6'></line><line x1='8' y1='12' x2='21' y2='12'></line><line x1='8' y1='18' x2='21' y2='18'></line><line x1='3' y1='6' x2='3' y2='6'></line><line x1='3' y1='12' x2='3' y2='12'></line><line x1='3' y1='18' x2='3' y2='18'></line></svg>");
+            background-size: 1.5vw;
+            padding-left: 3vw;
+            
+            -webkit-box-shadow: 0px 10px 46px -40px rgba(0,0,0,0.33);
+            -moz-box-shadow: 0px 10px 46px -40px rgba(0,0,0,0.33);
+            box-shadow: 0px 10px 46px -40px rgba(0,0,0,0.33);
+            transition: box-shadow 350ms ease-in-out;
+        }
+        
+        h2:hover {
+            -webkit-box-shadow: 0px 10px 46px -40px rgba(0,0,0,0.7);
+            -moz-box-shadow: 0px 10px 46px -40px rgba(0,0,0,0.7);
+            box-shadow: 0px 10px 46px -40px rgba(0,0,0,0.7);
+        }
+        
+        h3 {
+            display:block;
+            width: 100%;
+            /*background-color: #BBB;*/
+            font-size: 6.6vh;
+            font-weight: 300;
+            margin-top: @fibSeq2BlancHeight8; 
+            padding: @fibSeq2BlancHeight8 0px @fibSeq2BlancHeight9 @goldenWidth9;
+            color:#BBB;
+        }
+        
+        .t-enabled:hover {
+            cursor: pointer;
+        }
+        
+        .hidden {
+            display: none;
+            height: 0;
+            overflow: hidden;
+            transition: height 1000ms ease-in-out;
+        }
+        
+        .hidden.is-visible {
+            display: block;
+            height: auto;
+        }
+        
+        article:last-child {
+            border-bottom: none;
+        }
+        article {
+            
+            padding: @fibSeq2BlancHeight6 @goldenWidth9 @fibSeq2BlancHeight5 @goldenWidth9;
+            border-bottom: 1px solid #EEE;
+            
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-flex-direction: row;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            -webkit-flex-wrap: nowrap;
+            -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap;
+            -webkit-justify-content: space-between;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            -webkit-align-content: stretch;
+            -ms-flex-line-pack: stretch;
+            align-content: stretch;
+            -webkit-align-items: flex-start;
+            -ms-flex-align: start;
+            align-items: flex-start;
+            
+            div, figure {
+                -webkit-order: 0;
+                -ms-flex-order: 0;
+                order: 0;
+                -webkit-flex: 0 1 auto;
+                -ms-flex: 0 1 auto;
+                flex: 0 1 auto;
+                -webkit-align-self: auto;
+                -ms-flex-item-align: auto;
+                align-self: auto;
+            }
+            
+            div {
+                padding-right: @goldenWidth7;
+                
+                h4 {
+                    display: block;
+                    margin-bottom: @goldenWidth7;
+                    font-size: 3.6vh;
+                    font-weight: 300;
+                    max-width: 40ch;
+                }
+                a {
+                    display: block;
+                    background-repeat: no-repeat;
+                    background-position: left center;
+                    background-image: url("data:image/svg+xml;utf8,<svg width='24' height='24' xmlns='http://www.w3.org/2000/svg' fill-rule='evenodd' clip-rule='evenodd'><path d='M14 4h-13v18h20v-11h1v12h-22v-20h14v1zm10 5h-1v-6.293l-11.646 11.647-.708-.708 11.647-11.646h-6.293v-1h8v8z'/></svg>");
+                    background-size: 1vw;
+                    padding-left: 2vw;
+                }
+                a:link {
+                    text-decoration: none;
+                    color: #000;
+                }
+                a:hover {
+                    text-decoration: underline;
+                    color: #000;
+                }
+                a:visited {
+                    text-decoration: none;
+                    color: #000;
+                }
+                
+                span, p {
+                    display: block;
+                    margin: @fibSeq2BlancHeight8 0;
+                    padding-left: 2vw;
+                }
+                span {
+                    line-height: 2.33vh;
+                    font-size: 1.5vh;
+                    font-weight: 800;
+                    
+                    div, time {
+                        display: inline-block;
+                        padding-right: 0px;
+                    }
+                }
+                p {
+                    display: block;
+                    max-width: 62ch;
+                    line-height: 2.33vh;
+                    font-size: 1.66vh;
+                }
+            }
+        }
+    }
+}

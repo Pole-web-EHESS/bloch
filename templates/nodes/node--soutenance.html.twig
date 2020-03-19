@@ -1,0 +1,300 @@
+{#
+/**
+ * @file
+ * Bloch's theme implementation to display a node.
+ *
+ * Available variables:
+ * - node: The node entity with limited access to object properties and methods.
+ *   Only method names starting with "get", "has", or "is" and a few common
+ *   methods such as "id", "label", and "bundle" are available. For example:
+ *   - node.getCreatedTime() will return the node creation timestamp.
+ *   - node.hasField('field_example') returns TRUE if the node bundle includes
+ *     field_example. (This does not indicate the presence of a value in this
+ *     field.)
+ *   - node.isPublished() will return whether the node is published or not.
+ *   Calling other methods, such as node.delete(), will result in an exception.
+ *   See \Drupal\node\Entity\Node for a full list of public properties and
+ *   methods for the node object.
+ * - label: The title of the node.
+ * - content: All node items. Use {{ content }} to print them all,
+ *   or print a subset such as {{ content.field_example }}. Use
+ *   {{ content|without('field_example') }} to temporarily suppress the printing
+ *   of a given child element.
+ * - author_picture: The node author user entity, rendered using the "compact"
+ *   view mode.
+ * - metadata: Metadata for this node.
+ * - date: Themed creation date field.
+ * - author_name: Themed author name field.
+ * - url: Direct URL of the current node.
+ * - display_submitted: Whether submission information should be displayed.
+ * - attributes: HTML attributes for the containing element.
+ *   The attributes.class element may contain one or more of the following
+ *   classes:
+ *   - node: The current template type (also known as a "theming hook").
+ *   - node--type-[type]: The current node type. For example, if the node is an
+ *     "Article" it would result in "node--type-article". Note that the machine
+ *     name will often be in a short form of the human readable label.
+ *   - node--view-mode-[view_mode]: The View Mode of the node; for example, a
+ *     teaser would result in: "node--view-mode-teaser", and
+ *     full: "node--view-mode-full".
+ *   The following are controlled through the node publishing options.
+ *   - node--promoted: Appears on nodes promoted to the front page.
+ *   - node--sticky: Appears on nodes ordered above other non-sticky nodes in
+ *     teaser listings.
+ *   - node--unpublished: Appears on unpublished nodes visible only to site
+ *     admins.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - content_attributes: Same as attributes, except applied to the main
+ *   content tag that appears in the template.
+ * - author_attributes: Same as attributes, except applied to the author of
+ *   the node tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ * - view_mode: View mode; for example, "teaser" or "full".
+ * - teaser: Flag for the teaser state. Will be true if view_mode is 'teaser'.
+ * - page: Flag for the full page state. Will be true if view_mode is 'full'.
+ * - readmore: Flag for more state. Will be true if the teaser content of the
+ *   node cannot hold the main body content.
+ * - logged_in: Flag for authenticated user status. Will be true when the
+ *   current user is a logged-in member.
+ * - is_admin: Flag for admin user status. Will be true when the current user
+ *   is an administrator.
+ *
+ * @see template_preprocess_node()
+ */
+#}
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+    'clearfix',
+  ]
+%}
+<article class="container node evenement">
+
+  {# Title header for mobile display #}
+  <header class="hidden-lg hidden-xl">
+    <h1>
+      {{ label }}
+    </h1>
+    <h2>
+      {{ node.field_sous_titre.value }}
+    </h2>
+  </header>
+
+  <aside class="col-left">
+
+    {# Information column #}
+    <div class="col-infos">
+
+      {# Event type at the top of left column
+         This requires twig_field_value module to render correctly #}
+      <h3>{{ content.field_type_d_evenement|field_value }}</h3>
+
+      {# [DEPRECATED] Dates and places of the event #}
+      {#<div class="infos-bloc">
+        <div class="infos-bloc-icone">
+          <span class="fa fa-calendar-alt fa-fw"></span>
+        </div>
+        <div class="infos-bloc-texte">
+          <ul>
+            {{ content.field_adresse_date_horaire }}
+          </ul>
+        </div>
+      </div>#}
+
+      {# Dates of the event #}
+      <div class="infos-bloc">
+        <div class="infos-bloc-icone">
+          <span class="fa fa-calendar-alt fa-fw"></span>
+        </div>
+        <div class="infos-bloc-texte">
+          <ul>
+            {% for date in node.field_date %}
+              {% if date.value|date("l j F Y") == date.end_value|date("l j F Y") %}
+                <li>Le {{ date.value|date('U')|format_date("custom", "l j F Y") }} de {{ date.value|date('U')|format_date("custom", "G:i") }} à  {{ date.end_value|date('U')|format_date("custom","G:i") }}</li>
+              {% else %}
+                <li>Du {{ date.value|date('U')|format_date("custom","l j F Y") }} {{ date.value|date('U')|format_date("custom","G:i") }} au {{ date.end_value|date('U')|format_date("custom","l j F Y") }} {{ date.end_value|date('U')|format_date("custom","G:i") }}</li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+
+      {# Places of the event #}
+      {% if node.field_adresse.value %}
+      <div class="infos-bloc">
+        <div class="infos-bloc-icone">
+          <span class="fa fa-calendar-alt fa-fw"></span>
+        </div>
+        <div class="infos-bloc-texte">
+          <ul>
+            {{ content.field_adresse }}
+          </ul>
+        </div>
+      </div>
+      {% elseif node.field_adresse_texte_brut %}
+      <div class="infos-bloc">
+        <div class="infos-bloc-icone">
+          <span class="fa fa-map fa-fw"></span>
+        </div>
+        <div class="infos-bloc-texte">
+          <ul>
+            {% for item in node.field_adresse_texte_brut %}
+              <li>{{ item.value }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      {% endif %}
+     
+      {% if node.field_inscription.value %}
+        <div class="infos-bloc">
+          <div class="infos-bloc-icone">
+            <span class="fa fa-clipboard-list fa-fw"></span>
+          </div>
+          <div class="infos-bloc-texte">
+            <span class="infos-intitule">Dates d'inscription :</span>
+            {% for date in node.field_dates_inscription %}
+              <div>Du {{ date.value|date("l j F Y") }} au {{ date.end_value|date("l j F Y") }}</div>
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if node.field_email.value %}
+        <div class="infos-bloc">
+          <div class="infos-bloc-icone">
+            <span class="fa fa-envelope fa-fw"></span>
+          </div>
+          <div class="infos-bloc-texte">
+            <span class="infos-intitule">Contact(s) :</span>
+            <ul>
+              {% for email in node.field_email %}
+                <li><a href="mailto:{{ email.value }}">{{ email.value }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      {% endif %}
+
+      {% if node.field_telephone.value %}
+        <div class="infos-bloc">
+          <div class="infos-bloc-icone">
+            <span class="fa fa-phone fa-fw"></span>
+          </div>
+          <div class="infos-bloc-texte">
+            <span class="infos-intitule">Téléphone(s) :</span>
+            <ul>
+              {% for telephone in node.field_telephone %}
+                <li>{{ telephone.value }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      {% endif %}
+
+      {% if node.field_piece_jointe.value %}
+        <div class="infos-bloc">
+          <div class="infos-bloc-icone">
+            <span class="fa fa-file-download fa-fw"></span>
+          </div>
+          <div class="infos-bloc-texte">
+            <span class="infos-intitule">A télécharger :</span>
+            <ul>
+              {% for pj in node.field_piece_jointe %}
+                <li><a href="{{ pj.uri }}">{{ pj.description }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      {% endif %}
+
+      {% if node.field_lien.value %}
+        <div class="infos-bloc">
+          <div class="infos-bloc-icone">
+            <span class="fa fa-globe fa-fw"></span>
+          </div>
+          <div class="infos-bloc-texte">
+            <span class="infos-intitule">A consulter :</span>
+            <ul>
+              {% for lien in node.field_lien %}
+                <li><a href="{{ lien.uri }}">{{ lien.title }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      {% endif %}
+
+    </div>
+
+    {# if node.field_personnes.value #}
+      <div class="col-infos participants">
+        <h3>Participants</h3>
+        {{ drupal_view('participants', 'block_1') }}
+      </div>
+    {# endif #}
+
+  </aside>
+
+  <div class="col-right">
+
+    {# Main picture of the node, with its caption #}
+    <figure class="img-container">
+      <img src="{{ file_url(node.field_visuel[0].entity.uri.value) }}" alt="{{ node.field_visuel[0].alt  }}" />
+      {% if node.field_legende.value %}
+        <figcaption>{{ node.field_legende.value }}</figcaption>
+      {% endif %}
+    </figure>
+
+    {# Title header for desktop display #}
+    <header class="hidden-sm hidden-md">
+      <h1>
+        {{ label }}
+      </h1>
+      <h2>
+        {{ node.field_sous_titre.value }}
+      </h2>
+    </header>
+
+    <div class="node-body">
+      {{ node.field_description.value|raw }}
+    </div>
+
+    {# Ces variables sont désormais passées en computed fields #}
+    {% set partage_facebook = 'http://www.facebook.com/sharer/sharer.php?u=' ~ url('<current>')|render ~ '&t=' ~ node.label %}
+    {% set partage_twitter = 'https://twitter.com/intent/tweet?url=' ~ url('<current>')|render ~ '&text=' ~ node.label %}
+    <div class="node-partage">
+      <h3>Partager</h3>
+      <a href="{{ node.field_partage_facebook.value }}"><span class="fab fa-facebook-f"></span></a>
+      <a href="{{ node.field_partage_twitter.value }}"><span class="fab fa-twitter"></span></a>
+    </div>
+
+    {% set first = true %}
+    {% if node.field_mot_cle.value %}
+      <div class="node-mot-cle">
+        {% for mot_cle in node.field_mot_cle %}
+          {% if not first %}
+            -
+          {% endif %}
+          <a href="">{{ mot_cle.name }}</a>
+          {% set first = false %}
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    <hr>
+
+    <h3>Contenus connexes</h3>
+    {# Insertion d'une vue listant les contenus ayant les mêmes mots-clés / le même type de contenu / tous les contenus, par ordre décroissant de date de publication #}
+
+  </div>
+
+</article>

@@ -55,17 +55,17 @@ div.terme-taxonomie {
         }
         
         h2:hover {
-            -webkit-box-shadow: 0px 10px 46px -40px rgba(0,0,0,0.7);
-            -moz-box-shadow: 0px 10px 46px -40px rgba(0,0,0,0.7);
-            box-shadow: 0px 10px 46px -40px rgba(0,0,0,0.7);
+            -webkit-box-shadow: 0px 10px 46px -40px rgba(0,0,0,0.8);
+            -moz-box-shadow: 0px 10px 46px -40px rgba(0,0,0,0.8);
+            box-shadow: 0px 10px 46px -40px rgba(0,0,0,0.8);
         }
         
         h3 {
             display:block;
             width: 100%;
             /*background-color: #BBB;*/
-            font-size: 6.6vh;
-            font-weight: 300;
+            font-size: 7vh;
+            font-weight: 100;
             margin-top: @fibSeq2BlancHeight8; 
             padding: @fibSeq2BlancHeight8 0px @fibSeq2BlancHeight9 @goldenWidth9;
             color:#BBB;
@@ -135,38 +135,46 @@ div.terme-taxonomie {
                     font-size: 3.6vh;
                     font-weight: 300;
                     max-width: 40ch;
-                }
-                a {
-                    display: block;
-                    background-repeat: no-repeat;
-                    background-position: left center;
-                    background-image: url("data:image/svg+xml;utf8,<svg width='24' height='24' xmlns='http://www.w3.org/2000/svg' fill-rule='evenodd' clip-rule='evenodd'><path d='M14 4h-13v18h20v-11h1v12h-22v-20h14v1zm10 5h-1v-6.293l-11.646 11.647-.708-.708 11.647-11.646h-6.293v-1h8v8z'/></svg>");
-                    background-size: 1vw;
-                    padding-left: 2vw;
-                }
-                a:link {
-                    text-decoration: none;
-                    color: #000;
-                }
-                a:hover {
-                    text-decoration: underline;
-                    color: #000;
-                }
-                a:visited {
-                    text-decoration: none;
-                    color: #000;
+                    
+                    a {
+                        display: block;
+                        background-repeat: no-repeat;
+                        background-position: left center;
+                        background-image: url("data:image/svg+xml;utf8,<svg width='24' height='24' xmlns='http://www.w3.org/2000/svg' fill-rule='evenodd' clip-rule='evenodd'><path d='M14 4h-13v18h20v-11h1v12h-22v-20h14v1zm10 5h-1v-6.293l-11.646 11.647-.708-.708 11.647-11.646h-6.293v-1h8v8z'/></svg>");
+                        background-size: 1vw;
+                        padding-left: 2vw;
+                    }
+                    a:link {
+                        text-decoration: none;
+                        color: #000;
+                    }
+                    a:hover {
+                        text-decoration: underline;
+                        color: #000;
+                    }
+                    a:visited {
+                        text-decoration: none;
+                        color: #000;
+                    }
                 }
                 
-                span, p {
+                details, p {
                     display: block;
                     margin: @fibSeq2BlancHeight8 0;
                     padding-left: 2vw;
                 }
-                span {
+                details {
+                    summary {
+                        display: none;
+                    }
                     line-height: 2.33vh;
                     font-size: 1.5vh;
                     font-weight: 800;
+                    color: #999;
                     
+                    a {
+                        display: inline-block;
+                    }
                     div, time {
                         display: inline-block;
                         padding-right: 0px;
@@ -177,6 +185,38 @@ div.terme-taxonomie {
                     max-width: 62ch;
                     line-height: 2.33vh;
                     font-size: 1.66vh;
+                    color: #000;
+                }
+                aside {
+                    div.taxonomie-termes-associes {
+                        display: block;
+                        margin: @fibSeq2BlancHeight6 0 0 0;
+                        padding-left: 2vw;
+                        a {
+                            display: inline-block;
+                            margin-right: 1vw;
+                            text-transform: uppercase;
+                            background-repeat: no-repeat;
+                            background-position: left top;
+                            background-image: url("data:image/svg+xml;utf8,<svg width='24' height='24' xmlns='http://www.w3.org/2000/svg' fill-rule='evenodd' clip-rule='evenodd'><path d='M14 4h-13v18h20v-11h1v12h-22v-20h14v1zm10 5h-1v-6.293l-11.646 11.647-.708-.708 11.647-11.646h-6.293v-1h8v8z'/></svg>");
+                            background-size: 0.7vw;
+                            padding-left: 1.33vw;
+                            font-size: 1.15vh;
+                            letter-spacing: .08vw;
+                        }
+                        a:link {
+                            text-decoration: none;
+                            color: #666;
+                        }
+                        a:hover {
+                            text-decoration: underline;
+                            color: #000;
+                        }
+                        a:visited {
+                            text-decoration: none;
+                            color: #666;
+                        }
+                    }
                 }
             }
         }

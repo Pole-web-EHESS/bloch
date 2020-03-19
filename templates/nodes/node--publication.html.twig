@@ -77,7 +77,7 @@
           </div>
           <div class="infos-bloc-texte">
             <span class="infos-intitule">Date de parution :</span>
-            {{ node.field_date_de_parution.value|date("d/m/Y") }}
+            {{ node.field_date_de_parution.value|format_date("d/m/Y") }}
           </div>
         </div>
       {% endif %}

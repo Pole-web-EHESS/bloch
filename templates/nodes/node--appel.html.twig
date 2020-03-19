@@ -1,0 +1,147 @@
+{#
+/**
+ * @file
+ * Bloch's theme implementation to display a node.
+ *
+ */
+#}
+<article class="container node appel">
+
+  {# Title header for mobile display #}
+  <header class="hidden-lg hidden-xl">
+    <h1>
+      {{ label }}
+    </h1>
+    <h2>
+      {{ node.field_sous_titre.value }}
+    </h2>
+  </header>
+
+  <aside class="col-left">
+
+    {# Information column #}
+    <div class="col-infos">
+
+      {# Call type at the top of left column
+         This requires twig_field_value module to render correctly #}
+      <h3>{{ content.field_type_d_appel|field_value }}</h3>
+
+      {# Limit date of the call #}
+      <div class="infos-bloc">
+        <div class="infos-bloc-icone">
+          <span class="fa fa-calendar-alt fa-fw"></span>
+        </div>
+         <div class="infos-bloc-texte">
+            <span class="infos-intitule">Date limite :</span>
+            {{ node.field_date_limite.value|date("l j F Y") }}
+          </div>
+      </div>
+
+      {% if node.field_inscription.value %}
+        <div class="infos-bloc">
+          <div class="infos-bloc-icone">
+            <span class="fa fa-clipboard-list fa-fw"></span>
+          </div>
+          <div class="infos-bloc-texte">
+            <span class="infos-intitule">Dates d'inscription :</span>
+            {% for date in node.field_dates_inscription %}
+              <div>Du {{ date.value|format_date("l j F Y") }} au {{ date.end_value|format_date("l j F Y") }}</div>
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if node.field_email.value %}
+        <div class="infos-bloc">
+          <div class="infos-bloc-icone">
+            <span class="fa fa-envelope fa-fw"></span>
+          </div>
+          <div class="infos-bloc-texte">
+            <span class="infos-intitule">Contact(s) :</span>
+            <ul>
+              {% for email in node.field_email %}
+                <li><a href="mailto:{{ email.value }}">{{ email.value }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      {% endif %}
+
+      {% if node.field_piece_jointe.value %}
+        <div class="infos-bloc">
+          <div class="infos-bloc-icone">
+            <span class="fa fa-file-download fa-fw"></span>
+          </div>
+          <div class="infos-bloc-texte">
+            <span class="infos-intitule">A télécharger :</span>
+            <ul>
+              {% for pj in node.field_piece_jointe %}
+                <li><a href="{{ pj.uri }}">{{ pj.description }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      {% endif %}
+
+      {% if node.field_lien.value %}
+        <div class="infos-bloc">
+          <div class="infos-bloc-icone">
+            <span class="fa fa-globe fa-fw"></span>
+          </div>
+          <div class="infos-bloc-texte">
+            <span class="infos-intitule">A consulter :</span>
+            <ul>
+              {% for lien in node.field_lien %}
+                <li><a href="{{ lien.uri }}">{{ lien.title }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      {% endif %}
+
+    </div>
+
+  </aside>
+
+  <div class="col-right">
+
+    {# Main picture of the node, with its caption #}
+    <figure class="img-container">
+      <img src="{{ file_url(node.field_visuel[0].entity.uri.value) }}" alt="{{ node.field_visuel[0].alt  }}" />
+      {% if node.field_legende.value %}
+        <figcaption>{{ node.field_legende.value }}</figcaption>
+      {% endif %}
+    </figure>
+
+    {# Title header for desktop display #}
+    <header class="hidden-sm hidden-md">
+      <h1>
+        {{ label }}
+      </h1>
+    </header>
+
+    <div class="node-body">
+      {{ node.field_description.value|raw }}
+    </div>
+
+    {% set first = true %}
+    {% if node.field_mot_cle.value %}
+      <div class="node-mot-cle">
+        {% for mot_cle in node.field_mot_cle %}
+          {% if not first %}
+            -
+          {% endif %}
+          <a href="">{{ mot_cle.name }}</a>
+          {% set first = false %}
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    <hr>
+
+    <h3>Contenus connexes</h3>
+    {# Insertion d'une vue listant les contenus ayant les mêmes mots-clés / le même type de contenu / tous les contenus, par ordre décroissant de date de publication #}
+
+  </div>
+
+</article>

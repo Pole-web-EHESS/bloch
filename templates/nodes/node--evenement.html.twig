@@ -235,12 +235,12 @@
 
     </div>
 
-    {# if node.field_personnes.value #}
+    {% if node.field_chercheurs|length > 0 %}
       <div class="col-infos participants">
         <h3>Participants</h3>
         {{ drupal_view('participants', 'block_1') }}
       </div>
-    {# endif #}
+    {% endif %}
 
   </aside>
 

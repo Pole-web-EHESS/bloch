@@ -20,7 +20,7 @@
 
       {# Event type at the top of left column
          This requires twig_field_value module to render correctly #}
-      <h3>{{ content.field_type_de_soutnenace|field_value }}</h3>
+      <h3>{{ content.field_type_de_soutenance|field_value }}</h3>
 
       {# Dates of the event #}
       <div class="infos-bloc">
@@ -52,7 +52,7 @@
           </ul>
         </div>
       </div>
-      {% elseif node.field_adresse_texte_brut %}
+      {% elseif node.field_adresse_texte_brut.value %}
       <div class="infos-bloc">
         <div class="infos-bloc-icone">
           <span class="fa fa-map fa-fw"></span>
@@ -83,6 +83,22 @@
         </div>
       {% endif %}
 
+       {% if node.field_telephone.value %}
+        <div class="infos-bloc">
+          <div class="infos-bloc-icone">
+            <span class="fa fa-phone fa-fw"></span>
+          </div>
+          <div class="infos-bloc-texte">
+            <span class="infos-intitule">Téléphone(s) :</span>
+            <ul>
+              {% for telephone in node.field_telephone %}
+                <li>{{ telephone.value }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      {% endif %}
+
       {% if node.field_piece_jointe.value %}
         <div class="infos-bloc">
           <div class="infos-bloc-icone">
@@ -101,33 +117,31 @@
 
     </div>
 
-    {# if node.field_personnes.value #}
+    {% if node.field_chercheurs|length > 0 %}
       <div class="col-infos participants">
         <h3>Participants</h3>
         {{ drupal_view('participants', 'block_1') }}
       </div>
-    {# endif #}
-
+    {% endif %}
   </aside>
 
   <div class="col-right">
 
     {# Main picture of the node, with its caption #}
-    <figure class="img-container">
-      <img src="{{ file_url(node.field_visuel[0].entity.uri.value) }}" alt="{{ node.field_visuel[0].alt  }}" />
-      {% if node.field_legende.value %}
-        <figcaption>{{ node.field_legende.value }}</figcaption>
-      {% endif %}
-    </figure>
+    {% if node.field_visuel.value %}
+        <figure class="img-container">
+        <img src="{{ file_url(node.field_visuel[0].entity.uri.value) }}" alt="{{ node.field_visuel[0].alt  }}" />
+        {% if node.field_legende.value %}
+          <figcaption>{{ node.field_legende.value }}</figcaption>
+        {% endif %}
+      </figure>
+    {% endif %}
 
     {# Title header for desktop display #}
     <header class="hidden-sm hidden-md">
       <h1>
         {{ label }}
       </h1>
-      <h2>
-        {{ node.field_sous_titre.value }}
-      </h2>
     </header>
 
     <div class="node-body">

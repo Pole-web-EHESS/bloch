@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Bloch's theme implementation to display a node.
+ * Bloch's theme implementation to display a node Evenement.
  *
  * Available variables:
  * - node: The node entity with limited access to object properties and methods.
@@ -265,7 +265,7 @@
     </header>
 
     <div class="node-body">
-      {{ node.field_description.value|raw }}
+      {{ content.body.0 }}
     </div>
 
     {# Ces variables sont désormais passées en computed fields #}

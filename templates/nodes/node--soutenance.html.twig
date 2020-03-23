@@ -30,7 +30,9 @@
         <div class="infos-bloc-texte">
           <ul>
             {% for date in node.field_date %}
-              {% if date.value|date("l j F Y") == date.end_value|date("l j F Y") %}
+              {% if date.value|date("l j F Y G i") == date.end_value|date("l j F Y G i") %}
+                <li>Le {{ date.value|date('U')|format_date("custom", "l j F Y") }} à {{ date.value|date('U')|format_date("custom", "G:i") }}</li>
+              {% elseif date.value|date("l j F Y") == date.end_value|date("l j F Y") %}
                 <li>Le {{ date.value|date('U')|format_date("custom", "l j F Y") }} de {{ date.value|date('U')|format_date("custom", "G:i") }} à  {{ date.end_value|date('U')|format_date("custom","G:i") }}</li>
               {% else %}
                 <li>Du {{ date.value|date('U')|format_date("custom","l j F Y") }} {{ date.value|date('U')|format_date("custom","G:i") }} au {{ date.end_value|date('U')|format_date("custom","l j F Y") }} {{ date.end_value|date('U')|format_date("custom","G:i") }}</li>
@@ -144,6 +146,11 @@
       </h1>
     </header>
 
+    {# Display the person informations #}
+    <h3>
+      {{ node.field_prenom.value }} {{ node.field_nom.value }}
+    </h3> 
+
     <div class="node-body">
       {{ content.body.0 }}
     </div>
@@ -158,13 +165,13 @@
     </div>
 
     {% set first = true %}
-    {% if node.field_mot_cle.value %}
+    {% if node.field_thematique_s_.value %}
       <div class="node-mot-cle">
-        {% for mot_cle in node.field_mot_cle %}
+        {% for item in node.thematique_s_ %}
           {% if not first %}
             -
           {% endif %}
-          <a href="">{{ mot_cle.name }}</a>
+          <a href="">{{ item.name }}</a>
           {% set first = false %}
         {% endfor %}
       </div>

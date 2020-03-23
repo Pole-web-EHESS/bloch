@@ -88,25 +88,24 @@ div.terme-taxonomie {
         }
         
         article:last-child {
-            border-bottom: none;
+            /*border-bottom: none;*/
         }
         article {
-            
             padding: @fibSeq2BlancHeight6 @goldenWidth9 @fibSeq2BlancHeight5 @goldenWidth9;
             border-bottom: 1px solid #EEE;
             
-            display: -ms-flexbox;
-            display: -webkit-flex;
-            display: flex;
+            display: -ms-inline-flexbox;
+            display: -webkit-inline-flex;
+            display: inline-flex;
             -webkit-flex-direction: row;
             -ms-flex-direction: row;
             flex-direction: row;
             -webkit-flex-wrap: nowrap;
             -ms-flex-wrap: nowrap;
             flex-wrap: nowrap;
-            -webkit-justify-content: space-between;
-            -ms-flex-pack: justify;
-            justify-content: space-between;
+            -webkit-justify-content: flex-start;
+            -ms-flex-pack: start;
+            justify-content: flex-start;
             -webkit-align-content: stretch;
             -ms-flex-line-pack: stretch;
             align-content: stretch;
@@ -127,22 +126,25 @@ div.terme-taxonomie {
             }
             
             div {
-                padding-right: @goldenWidth7;
+                padding-right: @goldenWidth6;
                 
                 h4 {
                     display: block;
                     margin-bottom: @goldenWidth7;
+                    padding-right: @goldenWidth7;
                     font-size: 3.6vh;
                     font-weight: 300;
-                    max-width: 40ch;
+                    width: 44vw;
                     
                     a {
                         display: block;
+                        width: 100% - (@goldenWidth6*2);
                         background-repeat: no-repeat;
                         background-position: left center;
                         background-image: url("data:image/svg+xml;utf8,<svg width='24' height='24' xmlns='http://www.w3.org/2000/svg' fill-rule='evenodd' clip-rule='evenodd'><path d='M14 4h-13v18h20v-11h1v12h-22v-20h14v1zm10 5h-1v-6.293l-11.646 11.647-.708-.708 11.647-11.646h-6.293v-1h8v8z'/></svg>");
                         background-size: 1.4vw;
-                        padding-left: 2.2vw;
+                        padding-left: @goldenWidth6;
+                        padding-right: @goldenWidth6;
                     }
                     a:link {
                         text-decoration: none;
@@ -222,7 +224,7 @@ div.terme-taxonomie {
                             background-image: url("data:image/svg+xml;utf8,<svg width='24' height='24' xmlns='http://www.w3.org/2000/svg' fill-rule='evenodd' clip-rule='evenodd'><path d='M14 4h-13v18h20v-11h1v12h-22v-20h14v1zm10 5h-1v-6.293l-11.646 11.647-.708-.708 11.647-11.646h-6.293v-1h8v8z'/></svg>");
                             background-size: 0.7vw;
                             padding-left: 1.33vw;
-                            font-size: 1.15vh;
+                            font-size: 1.25vh;
                             letter-spacing: .08vw;
                         }
                         a:link {
@@ -237,6 +239,134 @@ div.terme-taxonomie {
                             text-decoration: none;
                             color: #666;
                         }
+                    }
+                }
+            }
+            div.taxonomie-actualite {
+                padding-right: 0vw;
+                padding-left: @goldenWidth7;
+                details {
+                    a {
+                        margin-left: 0vw;
+                    }
+                }
+            }
+            div.taxonomie-publication {
+                height: 50vh;
+                width: (100vw - ((@goldenWidth4*2) + (@goldenWidth9*2))) / 3;
+                padding-right: 0vw;
+                margin-left: 2vw;
+                
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;
+                -webkit-flex-direction: column;
+                -ms-flex-direction: column;
+                flex-direction: column;
+                -webkit-flex-wrap: nowrap;
+                -ms-flex-wrap: nowrap;
+                flex-wrap: nowrap;
+                -webkit-justify-content: flex-start;
+                -ms-flex-pack: start;
+                justify-content: flex-start;
+                -webkit-align-content: center;
+                -ms-flex-line-pack: center;
+                align-content: center;
+                -webkit-align-items: center;
+                -ms-flex-align: center;
+                align-items: center;
+                
+                figure,
+                span.taxonomie-auteurs,
+                span.taxonomie-pub-titre,
+                span.taxonomie-pub-soustitre,
+                span.taxonomie-editeur {
+                    text-align: center;
+                    
+                    -webkit-order: 0;
+                    -ms-flex-order: 0;
+                    order: 0;
+                    -webkit-flex: 0 1 auto;
+                    -ms-flex: 0 1 auto;
+                    flex: 0 1 auto;
+                    -webkit-align-self: auto;
+                    -ms-flex-item-align: auto;
+                    align-self: auto;
+                }
+                
+                figure {
+                    margin-bottom: @fibSeq2BlancHeight6;
+                    
+                    img {
+                        -webkit-box-shadow: 0px 10px 46px -40px rgba(0,0,0,1);
+                        -moz-box-shadow: 0px 10px 46px -40px rgba(0,0,0,1);
+                        box-shadow: 0px 10px 46px -40px rgba(0,0,0,1);
+                    }
+                }
+                
+                span.taxonomie-auteurs,
+                span.taxonomie-pub-titre,
+                span.taxonomie-pub-soustitre,
+                span.taxonomie-editeur {
+                    font-size: 1.44vh;
+                    max-width: 34ch;
+                }
+                
+                span.taxonomie-auteurs {
+                    font-weight: 800;
+                    margin-bottom: @fibSeq2BlancHeight8;
+                }
+                
+                span.taxonomie-pub-titre {
+                    h4 {
+                        width: 100%;
+                        margin:0 0 @fibSeq2BlancHeight9 0;
+                        padding: 0;
+                        a {
+                            display: block;
+                            background-image: none;
+                            margin-left: 0vw;
+                            padding-left: 0vw;
+                            font-size: 2.8vh;
+                            max-width: 20ch;
+                        }
+                        a:link {
+                            text-decoration: none;
+                            color: #000;
+                        }
+                        a:hover {
+                            text-decoration: underline;
+                            color: #000;
+                        }
+                        a:visited {
+                            text-decoration: none;
+                            color: #000;
+                        }
+                    }
+                }
+                span.taxonomie-pub-soustitre {
+                    margin-bottom: @fibSeq2BlancHeight7;
+                }
+                
+                span.taxonomie-editeur {
+                    a {
+                        background-repeat: no-repeat;
+                        background-position: left center;
+                        background-image: url("data:image/svg+xml;utf8,<svg width='24' height='24' xmlns='http://www.w3.org/2000/svg' fill-rule='evenodd' clip-rule='evenodd'><path d='M14 4h-13v18h20v-11h1v12h-22v-20h14v1zm10 5h-1v-6.293l-11.646 11.647-.708-.708 11.647-11.646h-6.293v-1h8v8z'/></svg>");
+                        background-size: 1vw;
+                        padding-left: 1.8vw;
+                    }
+                    a:link {
+                        text-decoration: none;
+                        color: #666;
+                    }
+                    a:hover {
+                        text-decoration: underline;
+                        color: #000;
+                    }
+                    a:visited {
+                        text-decoration: none;
+                        color: #666;
                     }
                 }
             }

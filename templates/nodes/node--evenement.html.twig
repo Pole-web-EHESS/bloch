@@ -163,7 +163,7 @@
           <div class="infos-bloc-texte">
             <span class="infos-intitule">Dates d'inscription :</span>
             {% for date in node.field_dates_inscription %}
-              <div>Du {{ date.value|date("l j F Y") }} au {{ date.end_value|date("l j F Y") }}</div>
+              <div>Du {{ date.value|date('U')|format_date("custom", "l j F Y") }} au {{ date.end_value|date('U')|format_date("custom", "l j F Y") }}</div>
             {% endfor %}
           </div>
         </div>

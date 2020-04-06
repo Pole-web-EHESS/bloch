@@ -51,3 +51,23 @@ function bloch_theme_suggestions_page_alter(
     $suggestions[] = 'page__taxonomy__' . $term->getVocabularyId();
   }
 }
+
+/**
+ * Implements hook_preprocess_HOOK() for HTML document templates.
+ * Adding RDFa custom mappings (VIVO)
+ */
+function bloch_preprocess_html(&$variables) {
+  // Adds RDF namespace prefix bindings in the form of an RDFa 1.1 prefix
+  // attribute inside the html element.
+  $custom_prefixes = array(
+      'ehess' => 'http://data.ehess.fr/ontology/vivo#',
+      'vivo' => 'http://vivoweb.org/ontology/core#',
+      'owl' => 'http://www.w3.org/2002/07/owl#'
+  ); 
+  if (!isset($variables['html_attributes']['prefix'])) {
+    $variables['html_attributes']['prefix'] = [];
+  }
+  foreach ($custom_prefixes as $prefix => $uri) {
+    $variables['html_attributes']['prefix'][] = $prefix . ': ' . $uri . " ";
+  }
+}

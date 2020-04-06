@@ -1,0 +1,15 @@
+{#
+/**
+ * @file
+ * Default simple view template to display a list of rows.
+ *
+ * @ingroup views_templates
+ */
+#}
+<article>
+{{ title }}
+<details open>
+    <summary>Contenus associés</summary>
+{% for id, row in rows %}{{ row.content }}{% endfor %}
+</details>
+</article>
